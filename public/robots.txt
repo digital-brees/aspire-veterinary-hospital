@@ -1,0 +1,7 @@
+# Aspire Veterinary Hospital — robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://aspirevethospital.com/sitemap-index.xml

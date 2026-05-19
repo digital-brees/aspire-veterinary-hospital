@@ -1,0 +1,147 @@
+/* Aspire Veterinary Hospital — design tokens
+ * Extracted from live aspirevethospital.com computed CSS.
+ * Import once at the page root. Components reference these variables.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Brand colors */
+  --aspire-navy: #2F4157;
+  --aspire-tan: #B3977B;
+  --aspire-cream: #E7E2D8;
+  --aspire-text: #808080;
+  --aspire-text-dark: #333333;
+  --aspire-bg: #FFFFFF;
+  --aspire-bg-soft: #F5F2EE;
+  --aspire-section-bg: #F1F2F2;  /* light gray used behind .content sections + sticky toggle nav */
+
+  /* Tab strip palette */
+  --tab-default-bg: rgb(231, 226, 216);
+  --tab-text: rgb(116, 116, 116);
+
+  /* Type stack */
+  --font-display: 'Playfair Display', 'Times New Roman', serif;
+  --font-body: 'Montserrat', system-ui, sans-serif;
+
+  /* Layout */
+  --container: 1200px;
+  --section-pad: 100px;
+  --header-h: 170px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body.aspire-site {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--aspire-text);
+  background: var(--aspire-bg);
+  -webkit-font-smoothing: antialiased;
+}
+.aspire-site img { max-width: 100%; display: block; }
+.aspire-site a { color: inherit; text-decoration: none; }
+.aspire-site h1,
+.aspire-site h2,
+.aspire-site h3,
+.aspire-site h4,
+.aspire-site h5,
+.aspire-site h6 {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+/* Primary CTA */
+.aspire-btn {
+  display: inline-block;
+  background: var(--aspire-navy);
+  color: var(--aspire-cream);
+  border: 1px solid var(--aspire-cream);
+  border-radius: 5px;
+  padding: 17px 28px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 300;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s;
+}
+.aspire-btn:hover { background: var(--aspire-cream); color: var(--aspire-navy); }
+
+/* Content section base */
+.content {
+  background: var(--aspire-section-bg);
+  padding: 60px 0 80px;
+}
+.content__inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.content h2 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 500;
+  color: var(--aspire-tan);
+  margin: 40px 0 16px;
+  line-height: 1.25;
+}
+.content h2:first-child { margin-top: 0; }
+.content h3 {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--aspire-text-dark);
+  margin: 32px 0 16px;
+  line-height: 1.3;
+}
+.content h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--aspire-navy);
+  margin: 24px 0 8px;
+}
+.content p {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 18px;
+  color: var(--aspire-text);
+}
+.content p strong, .content li strong { color: var(--aspire-text-dark); font-weight: 600; }
+.content a { color: var(--aspire-tan); }
+.content a:hover { text-decoration: underline; }
+.content hr {
+  border: 0;
+  height: 1px;
+  background: #ECE6DF;
+  margin: 40px 0;
+}
+.callout {
+  background: var(--aspire-bg-soft);
+  border-left: 3px solid var(--aspire-tan);
+  padding: 20px 24px;
+  border-radius: 4px;
+  margin: 28px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.callout strong { color: var(--aspire-navy); }
+
+/* Hospital cards grid — used on urgent-care + illness-care hub */
+.hospital-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin: 32px 0 40px;
+}
+@media (max-width: 900px) {
+  .hospital-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+}
+@media (max-width: 600px) {
+  .hospital-grid { grid-template-columns: 1fr; gap: 20px; }
+}

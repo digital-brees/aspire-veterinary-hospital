@@ -1,0 +1,52 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+
+const tabs = [
+  { slug: 'examinations', label: 'Examinations', href: '/wellness-exams-germantown-md/' },
+  { slug: 'vaccinations', label: 'Vaccinations', href: '/vaccinations-germantown-md/' },
+  { slug: 'preventative-medications', label: 'Preventative Medications', href: '/preventative-care-germantown-md/' },
+  { slug: 'wellness-laboratory-diagnostics', label: 'Laboratory Diagnostics', href: '/wellness-laboratory-diagnostics-germantown-md/' },
+  { slug: 'wellness-imaging-diagnostics', label: 'Imaging Diagnostics', href: '/wellness-imaging-diagnostics-germantown-md/' },
+  { slug: 'dental-cleaning', label: 'Routine Dental Cleaning', href: '/dog-dental-care-germantown-md/' },
+];
+const schemaJson = `{"@context":"https://schema.org","@type":"MedicalProcedure","name":"Wellness Laboratory Diagnostics","description":"Routine in-house bloodwork, urinalysis, fecal exams, and disease screenings for preventive pet care.","url":"https://aspirevethospital.com/wellness-laboratory-diagnostics-germantown-md/","performer":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Wellness Lab Diagnostics for Pets in Germantown, MD | Aspire Veterinary Hospital"
+  description="In-house wellness bloodwork, urine, fecal, and disease screenings for dogs and cats. Aspire Veterinary Hospital partners with IDEXX in Germantown, MD."
+  canonical="https://aspirevethospital.com/wellness-laboratory-diagnostics-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/10/wellness-care-2_s1.jpg"
+  schemaJson={schemaJson}
+  currentService="wellness-care"
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2025/10/wellness-care-2_s1.jpg"
+  heroEyebrow="Wellness Care"
+  heroH1="Laboratory Diagnostics"
+  tabs={tabs}
+  activeSlug="wellness-laboratory-diagnostics"
+  tabsLabel="Wellness services"
+>
+  <p>Routine testing is one of the best ways to maintain your pet's health and catch potential concerns before they become problems. Our partnership with IDEXX laboratory allows us to run a variety of wellness tests quickly and affordably so we can review results together and make proactive care decisions. For more specialized testing, we partner with trusted specialized laboratories across the country, selecting each for what they do best, giving confidence that your pet's health is being monitored with the highest accuracy. Icons next to each diagnostic indicate the type of sample needed for the test.</p>
+
+  <hr />
+
+  <h3>CBC Analysis <img src="https://aspirevethospital.com/wp-content/uploads/2025/12/test-tube-red.png" alt="Blood sample" style="width:20px;height:auto;vertical-align:middle;display:inline-block;" /></h3>
+  <p>A Complete Blood Count (CBC) evaluates the different types of blood cells circulating in your pet's body. This preventive test helps us identify indications of infection, inflammation, or anemia early—often before your pet shows symptoms. Performing this test during routine visits allows us to track trends and establish a baseline for your pet's ongoing wellness.</p>
+
+  <hr />
+
+  <h3>Chemistry Analysis <img src="https://aspirevethospital.com/wp-content/uploads/2025/12/test-tube-red.png" alt="Blood sample" style="width:20px;height:auto;vertical-align:middle;display:inline-block;" /></h3>
+  <p>Chemistry panels (sometimes called an internal organ function screen) measure key values that reflect how your pet's organs are doing, including the liver, kidneys, and pancreas. By monitoring these results over time, we can detect subtle changes, guide dietary or lifestyle recommendations, and work to address concerns before they develop into illness.</p>
+
+  <hr />
+
+  <h3>Urine and Fecal Analysis <img src="https://aspirevethospital.com/wp-content/uploads/2025/12/test-tube-yellow.png" alt="Urine sample" style="width:20px;height:auto;vertical-align:middle;display:inline-block;" /><img src="https://aspirevethospital.com/wp-content/uploads/2025/12/test-tube-dark.png" alt="Fecal sample" style="width:20px;height:auto;vertical-align:middle;display:inline-block;margin-left:4px;" /></h3>
+  <p>Urine and fecal (poop) testing are essential to preventive care. Urinalysis helps us assess hydration, kidney and liver function, and detect early urinary tract concerns, while fecal exams screen for intestinal parasites that can affect both your pet's health and your household. Performing these tests regularly ensures your pet stays comfortable and protected.</p>
+
+  <hr />
+
+  <h3>Screenings for Important Diseases <img src="https://aspirevethospital.com/wp-content/uploads/2025/12/test-tube-red.png" alt="Blood sample" style="width:20px;height:auto;vertical-align:middle;display:inline-block;" /><img src="https://aspirevethospital.com/wp-content/uploads/2025/12/test-tube-dark.png" alt="Fecal sample" style="width:20px;height:auto;vertical-align:middle;display:inline-block;margin-left:4px;" /></h3>
+  <p>Wellness screenings for heartworm, tick-borne illnesses in dogs, and two viral infections in cats (feline leukemia virus (FeLV), feline immunodeficiency virus (FIV)) help us detect threats before they cause serious problems. These quick, reliable tests give peace of mind and allow us to keep preventive care tailored to your pet's risks and lifestyle.</p>
+  <p>If your pet is feeling unwell, visit our <a href="/illness-laboratory-diagnostics-germantown-md/">Illness Diagnostics page</a> to learn how we identify and manage health concerns when they arise.</p>
+</ServiceLayout>

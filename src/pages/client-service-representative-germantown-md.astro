@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JobPageLayout from '../components/JobPageLayout.astro';
+import JobToggle from '../components/JobToggle.astro';
+
+const schemaJson = `{"@context":"https://schema.org","@type":"JobPosting","title":"Client Service Representative","datePosted":"2025-08-24","employmentType":"FULL_TIME","baseSalary":{"@type":"MonetaryAmount","currency":"USD","value":{"@type":"QuantitativeValue","minValue":22,"maxValue":24,"unitText":"HOUR"}},"hiringOrganization":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","sameAs":"https://aspirevethospital.com/","logo":"https://aspirevethospital.com/wp-content/uploads/2025/07/AVH-logo-mob.png"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}},"description":"Aspire Veterinary Hospital is seeking a professional, detail-oriented, and compassionate Client Service Representative (CSR) to join our growing team. As the first and last point of contact for many of our clients, the CSR plays a critical role in ensuring a seamless, positive experience at every stage of the client and patient journey.","url":"https://aspirevethospital.com/client-service-representative-germantown-md/"}`;
+---
+
+<BaseLayout
+  title="Client Service Representative Job in Germantown, MD | Aspire Veterinary Hospital"
+  description="Now hiring a Client Service Representative at Aspire Veterinary Hospital — front-desk and client support role at a progressive, team-oriented practice in Germantown, MD."
+  canonical="https://aspirevethospital.com/client-service-representative-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/10/Client-Service-Representative-sec1_img.jpg"
+  ogType="article"
+  schemaJson={schemaJson}
+  currentService="careers"
+>
+  <JobPageLayout
+    jobTitle="Client Service Representative"
+    heroImage="https://aspirevethospital.com/wp-content/uploads/2025/10/Client-Service-Representative-sec1_img.jpg"
+    location="Darnestown, MD"
+    jobType="Full-Time"
+    compensation="$22–$24/hour"
+    contactEmail="operations@aspirevethospital.com"
+    postedDate="August 24, 2025"
+  >
+    <h3>Overview</h3>
+    <p>Aspire Veterinary Hospital is seeking a professional, detail-oriented, and compassionate Client Service Representative (CSR) to join our growing team. As the first and last point of contact for many of our clients, the CSR plays a critical role in ensuring a seamless, positive experience at every stage of the client and patient journey.</p>
+    <p>Veterinary CSRs at Aspire manage a range of administrative and client support responsibilities including scheduling appointments, client education, follow-up communication, and processing payments. This position plays a vital role in supporting the clinical team and promoting operational efficiency. CSRs at Aspire also contribute to digital client engagement through content creation and social media interaction.</p>
+    <p>Our patient base includes both companion pets and active working K9s, offering a unique opportunity for CSRs with general practice experience to expand their skill set by supporting law enforcement handlers and the specialized needs of service dogs. This combination of traditional and specialty clientele makes the CSR role at Aspire both dynamic and rewarding.</p>
+
+    <JobToggle title="Key Responsibilities">
+      <h4>Client Communication & Education</h4>
+      <ul>
+        <li>Greet clients and patients warmly in-person, over the phone, or via email/text</li>
+        <li>Answer general inquiries related to services, pricing, preventative care, and hospital policies</li>
+        <li>Educate clients on wellness topics including vaccines, parasite prevention, nutrition, and routine checkups</li>
+        <li>Provide empathetic, knowledgeable communication during check-in, discharge, and follow-up calls</li>
+        <li>Assist clients in understanding treatment plans, estimates, invoices, and follow-up needs</li>
+      </ul>
+
+      <h4>Scheduling & Coordination</h4>
+      <ul>
+        <li>Schedule and confirm appointments for exams, surgeries, rehab visits, and sick patient care</li>
+        <li>Coordinate rechecks, technician appointments, and working dog evaluations</li>
+        <li>Manage follow-up call reminders and facilitate timely communication between clients and the medical team</li>
+        <li>Effectively use SMS/texting platforms such as Vello, Otto, or Weave to engage clients and confirm visits</li>
+      </ul>
+
+      <h4>Estimates, Billing & Documentation</h4>
+      <ul>
+        <li>Generate and review estimates and invoices in the EzyVet Practice Information Management System (PIMS)</li>
+        <li>Explain billing items clearly and compassionately to clients</li>
+        <li>Collect and process payments, refunds, and deposits accurately</li>
+        <li>Ensure thorough and accurate documentation of all client interactions, history, and preferences</li>
+      </ul>
+
+      <h4>Operational Support</h4>
+      <ul>
+        <li>Perform opening and closing responsibilities including phone systems, cleanliness checks, and setup</li>
+        <li>Maintain accurate client and patient records using EzyVet</li>
+        <li>Conduct end-of-day financial reconciliation, balance cash drawers, and prepare reports as needed</li>
+        <li>Assist with inventory check-ins, clerical support, and daily administrative tasks</li>
+        <li>Support clinic flow by collaborating with technicians and veterinarians on scheduling logistics</li>
+      </ul>
+
+      <h4>Technology & Administrative Tools</h4>
+      <ul>
+        <li>Proficient use of EzyVet PIMS for appointment scheduling, invoicing, and recordkeeping</li>
+        <li>Strong working knowledge of Microsoft Office Suite including Outlook, Word, and Excel</li>
+        <li>Experience with SMS/texting platforms such as Vello, Otto, or Weave</li>
+        <li>Confidence in navigating cloud-based tools and multi-platform communication systems</li>
+      </ul>
+
+      <h4>Social Media & Client Engagement</h4>
+      <ul>
+        <li>Assist with or lead content creation for social media platforms (Instagram, Facebook, etc.)</li>
+        <li>Highlight patient stories, client education, promotions, and hospital updates</li>
+        <li>Monitor and engage with client comments and messages under the Aspire brand voice</li>
+        <li>Support digital reputation management including review responses and client outreach</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Who Should Apply">
+      <ul>
+        <li>Love pets and people equally—and treat both with empathy and respect</li>
+        <li>Are confident communicators who can remain calm and professional in emotionally charged situations</li>
+        <li>Have experience working in veterinary, healthcare, or high-volume customer service settings</li>
+        <li>Are comfortable managing multiple platforms, tools, and conversations simultaneously</li>
+        <li>Thrive in collaborative, mission-driven workplaces where your contributions matter daily</li>
+        <li>Are curious, motivated, and interested in working with a mix of general and specialty care</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Preferred Qualifications">
+      <ul>
+        <li>Experience in a veterinary hospital or other medical administrative environment</li>
+        <li>Familiarity with EzyVet, Microsoft Office Suite, and client communication tools</li>
+        <li>Knowledge of common veterinary services, terminology, and preventative care best practices</li>
+        <li>Prior experience creating social media or digital client engagement content</li>
+        <li>Flexibility for rotating shifts including evenings and Saturday mornings</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Growth Opportunities">
+      <ul>
+        <li>Structured onboarding</li>
+        <li>Continued training and mentorship</li>
+        <li>Career path development continuing in Client Services and/or cross training in Technician skillsets</li>
+        <li>Exposure to specialized care (rehabilitation, acupuncture, service dogs, working K9s)</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Schedule & Benefits">
+      <ul>
+        <li>Full-Time; 36-40 hrs/wk
+          <ul>
+            <li>Hospital Hours: M–F 8am–6pm, Saturdays 9am–1pm</li>
+            <li>Consistent Weekly Schedule + Alternating Saturday coverage</li>
+          </ul>
+        </li>
+        <li>Competitive pay based on experience</li>
+        <li>Health benefits, 401k matching, and paid time off available for full-time employees</li>
+        <li>Healthcare and Product discounts for employee pets</li>
+      </ul>
+    </JobToggle>
+
+    <p><strong>Aspire Veterinary Hospital is an equal opportunity employer. We are committed to building a welcoming and diverse team, and we encourage all qualified candidates to apply.</strong></p>
+
+    <p>Join us in elevating care and enriching lives—apply today and become the voice and heart of our client experience.</p>
+  </JobPageLayout>
+</BaseLayout>

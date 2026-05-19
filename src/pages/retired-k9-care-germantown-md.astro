@@ -1,0 +1,44 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+const schemaJson = `{"@context":"https://schema.org","@type":"Service","name":"Retired Working K9 Care","description":"Comprehensive veterinary care for retired working and sporting canines — orthopedic and mobility care, neurologic and cognitive health, chronic disease management, behavioral wellness, and palliative/end-of-life support.","url":"https://aspirevethospital.com/retired-k9-care-germantown-md/","provider":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Retired Working K9 Care in Germantown, MD | Aspire Veterinary Hospital"
+  description="Comprehensive veterinary care for retired working and sporting canines — orthopedic, neurologic, chronic disease management, and compassionate end-of-life care."
+  canonical="https://aspirevethospital.com/retired-k9-care-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2026/02/Retired_care_hero-1.jpg"
+  schemaJson={schemaJson}
+  currentService="retired-k9-care"
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2026/02/Retired_care_hero-1.jpg"
+  heroH1="Retired K9 Care"
+  heroLede="Comprehensive medical care tailored to the long-term health, comfort, and retirement needs of working and sporting canines."
+>
+  <p>Retired working and sporting canines carry the physical and mental legacy of years spent supporting handlers, protecting communities, and performing demanding tasks, sometimes under extreme conditions. Aspire Veterinary Hospital provides these dogs with the same level of thoughtful, comprehensive medical care they received during service adapted for longevity, comfort, and quality of life in retirement.</p>
+
+  <hr />
+
+  <h3>Orthopedic & Mobility Care</h3>
+  <p>Management of chronic arthritis and repetitive stress injuries are a main focus for retired working and sporting dogs. Customized pain control plans and exercise routines support dogs with physical limitations. Check out our <a href="/canine-rehabilitation-germantown-md/">Fitness & Aquatics page</a> to learn more.</p>
+
+  <hr />
+
+  <h3>Neurologic & Cognitive Health</h3>
+  <p>We work closely with handlers and family to identify subtle changes in behavior, sleep, anxiety, and coordination/strength to identify chronic neurologic conditions like intervertebral disc disease and cognitive decline. We will work with you to implement practical strategies that preserve function and comfort for retired dogs in a way that feels approachable to each individual family scenario.</p>
+
+  <hr />
+
+  <h3>Chronic Care</h3>
+  <p>Advanced diagnostics, chronic disease management, and tailored preventive care help support dogs throughout retirement. We can continue to liaise with specialists that were involved in a working and sporting dog's care during their career or discuss what transitioning primarily to the general practice setting would look like for long term care.</p>
+
+  <hr />
+
+  <h3>Behavioral Wellness</h3>
+  <p>The transition to retired life can come with a big change in routine. This can be difficult for some dogs to accept. We can support you through stress and anxiety associated with career transition and behavior changes commonly seen after retirement.</p>
+
+  <hr />
+
+  <h3>Palliative & End of Life Care</h3>
+  <p>Aspire Veterinary Hospital provides compassionate care with a focus on comfort, family involvement, and privacy during this phase of life.</p>
+</ServiceLayout>

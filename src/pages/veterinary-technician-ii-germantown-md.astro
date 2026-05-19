@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JobPageLayout from '../components/JobPageLayout.astro';
+import JobToggle from '../components/JobToggle.astro';
+
+const schemaJson = `{"@context":"https://schema.org","@type":"JobPosting","title":"Veterinary Technician II","datePosted":"2025-08-24","employmentType":"FULL_TIME","baseSalary":{"@type":"MonetaryAmount","currency":"USD","value":{"@type":"QuantitativeValue","minValue":25,"maxValue":28,"unitText":"HOUR"}},"hiringOrganization":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","sameAs":"https://aspirevethospital.com/","logo":"https://aspirevethospital.com/wp-content/uploads/2025/07/AVH-logo-mob.png"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}},"description":"Veterinary Technician II role for those who have mastered foundational technician skills and are ready to expand into advanced veterinary medicine, working dog care, and rehabilitation.","url":"https://aspirevethospital.com/veterinary-technician-ii-germantown-md/"}`;
+---
+
+<BaseLayout
+  title="Veterinary Technician II Job in Germantown, MD | Aspire Veterinary Hospital"
+  description="Now hiring a Veterinary Technician II — advanced protocols, surgical and dental support, emergency triage, and working dog care at Aspire Veterinary Hospital in Germantown, MD."
+  canonical="https://aspirevethospital.com/veterinary-technician-ii-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/10/Veterinary-Technician-II-img.jpg"
+  ogType="article"
+  schemaJson={schemaJson}
+  currentService="careers"
+>
+  <JobPageLayout
+    jobTitle="Veterinary Technician II"
+    heroImage="https://aspirevethospital.com/wp-content/uploads/2025/10/Veterinary-Technician-II-img.jpg"
+    location="Darnestown, MD"
+    jobType="Full-Time"
+    compensation="$25–$28/hour"
+    contactEmail="operations@aspirevethospital.com"
+    postedDate="August 24, 2025"
+  >
+    <h3>Overview</h3>
+    <p>Aspire Veterinary Hospital is seeking an experienced, knowledgeable, and motivated Veterinary Technician II to join our progressive and collaborative care team. This role is designed for individuals who have mastered the foundational skills of a veterinary assistant or Technician I and are now ready to expand into more advanced areas of veterinary medicine.</p>
+    <p>As a Technician II, you will demonstrate a strong command of both routine and advanced veterinary protocols across all technical departments—including medical exams, dental and surgical support, emergency triage, imaging, and laboratory diagnostics. You will also support our working dog and rehabilitation services, and play a critical role in maintaining clinical standards, patient care quality, and staff mentorship.</p>
+    <p>We value continued learning and professional growth. This position is ideal for those preparing to obtain their credentials or develop a clinical specialization.</p>
+
+    <JobToggle title="Key Responsibilities">
+      <p>Depending on experience and daily caseload, responsibilities may include:</p>
+
+      <h4>Advanced Exam & Treatment Support</h4>
+      <ul>
+        <li>Support complex medical exams (sick visits, hospitalized patients, working dog exams)</li>
+        <li>Administer IM injections, IV injections and catheterization, and advanced medication protocols</li>
+        <li>Perform triage intake evaluations and initiate emergency intervention procedures</li>
+        <li>Assist with preparation of health certificates and international travel documentation</li>
+      </ul>
+
+      <h4>Laboratory & Diagnostic Skills</h4>
+      <ul>
+        <li>Conduct advanced sample collection and preparation (PRP, cultures)</li>
+        <li>Relay routine lab results and assist with callbacks with direct veterinary collaboration</li>
+        <li>Ensure strict compliance with MSDS, PPE, and disposal protocols</li>
+      </ul>
+
+      <h4>Digital Imaging & Interpretation</h4>
+      <ul>
+        <li>Oversee safe operation and advanced use of digital imaging systems (X-ray, ultrasound)</li>
+        <li>Coordinate specialist consults and telemedicine logistics</li>
+        <li>Identify and describe findings for initial assessment under veterinary guidance</li>
+      </ul>
+
+      <h4>Procedure Support – Dental and Surgical</h4>
+      <ul>
+        <li>Assist with sedation and/or general anesthesia induction for surgical and dental procedures</li>
+        <li>Monitor anesthesia and patient recovery</li>
+        <li>Maintain sedation/anesthesia logs</li>
+        <li>Perform advanced equipment prep and instrument care</li>
+        <li>Perform dental scaling, dental x-rays, and assist with dental charting</li>
+      </ul>
+
+      <h4>Rehabilitation & Working K9 Support</h4>
+      <ul>
+        <li>Guide use of conditioning and rehab equipment, including underwater treadmill</li>
+        <li>Assist with routine and sick working dog exams and health certifications</li>
+        <li>Document conditioning protocols and handler communications</li>
+      </ul>
+
+      <h4>Administrative & Training Leadership</h4>
+      <ul>
+        <li>Intake and discharge of hospitalized or emergent patients</li>
+        <li>Mentor junior staff in treatment, safety, and documentation protocols</li>
+        <li>Contribute to research, white paper drafting, or community education presentations</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Who Should Apply">
+      <p>We encourage applications from:</p>
+      <ul>
+        <li>Individuals with 2+ years of hands-on experience in a clinical veterinary setting</li>
+        <li>Are ready to take the next step beyond general exam and treatment support</li>
+        <li>Are confident in or eager to grow into emergency triage, surgical monitoring, and dental procedures</li>
+        <li>Have a strong interest in rehabilitation, conditioning, or working K9 care</li>
+        <li>Thrive in a team-based, high-quality hospital focused on low-stress handling and AAHA standards</li>
+        <li>Are pursuing or planning to pursue credentialing or specialization in veterinary medicine</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Qualifications">
+      <h4>Required (Minimum Requirements):</h4>
+      <ul>
+        <li>Proficiency in all routine technical and administrative tasks</li>
+        <li>Comfort with advanced protocols in exam, lab, imaging, and treatment</li>
+        <li>Familiarity with applicable laws and controlled substance protocols</li>
+        <li>Experience supporting working dogs or special patient populations</li>
+        <li>Desire to pursue credentialing or specialized veterinary training</li>
+      </ul>
+
+      <h4>Preferred (Maximum Requirements):</h4>
+      <ul>
+        <li>Mastery of advanced skills in triage, imaging, surgery, and diagnostics</li>
+        <li>Strong understanding of Maryland state veterinary regulations</li>
+        <li>Comfort leading hospital-wide procedures, assisting with research, and teaching others</li>
+        <li>Active pursuit of a specialty focus or credential (e.g., RVT, CCAT/CCRP, CCFT, etc)</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Growth Opportunities">
+      <p>As a Technician II, you will have access to expanded veterinary education and advancement, including:</p>
+      <ul>
+        <li>Controlled substance handling and regulatory compliance</li>
+        <li>Advanced lab diagnostics and interpretation</li>
+        <li>Emergency triage and hospitalization protocols</li>
+        <li>Dental procedure education and equipment operation</li>
+        <li>Conditioning and rehabilitation therapy implementation for companion animals and working K9s</li>
+        <li>Presentation and research participation in the broader veterinary community</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Schedule & Benefits">
+      <ul>
+        <li>Full-Time; 36-40 hrs/wk
+          <ul>
+            <li>Hospital Hours: M–F 8am–6pm, Saturdays 9am–1pm</li>
+            <li>Consistent Weekly Schedule + Alternating Saturday coverage</li>
+          </ul>
+        </li>
+        <li>Competitive pay based on experience</li>
+        <li>Health benefits, 401k matching, and paid time off available for full-time employees</li>
+        <li>Healthcare and Product discounts for employee pets</li>
+        <li>Located in a rapidly growing and pet-loving community in Montgomery County, MD</li>
+      </ul>
+    </JobToggle>
+
+    <p><strong>Aspire Veterinary Hospital is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees.</strong></p>
+
+    <p><strong>Ready to level up your veterinary career?</strong> Apply today and grow with us!</p>
+  </JobPageLayout>
+</BaseLayout>

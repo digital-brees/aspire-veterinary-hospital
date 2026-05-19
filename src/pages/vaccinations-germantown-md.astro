@@ -1,0 +1,100 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import SpeciesToggle from '../components/SpeciesToggle.astro';
+
+const tabs = [
+  { slug: 'examinations', label: 'Examinations', href: '/wellness-exams-germantown-md/' },
+  { slug: 'vaccinations', label: 'Vaccinations', href: '/vaccinations-germantown-md/' },
+  { slug: 'preventative-medications', label: 'Preventative Medications', href: '/preventative-care-germantown-md/' },
+  { slug: 'wellness-laboratory-diagnostics', label: 'Laboratory Diagnostics', href: '/wellness-laboratory-diagnostics-germantown-md/' },
+  { slug: 'wellness-imaging-diagnostics', label: 'Imaging Diagnostics', href: '/wellness-imaging-diagnostics-germantown-md/' },
+  { slug: 'dental-cleaning', label: 'Routine Dental Cleaning', href: '/dog-dental-care-germantown-md/' },
+];
+const schemaJson = `{"@context":"https://schema.org","@type":"MedicalProcedure","name":"Pet Vaccinations","description":"Core and lifestyle vaccines for dogs and cats including Rabies, Distemper/DHPP, Leptospirosis, Bordetella, Influenza, Lyme, FVRCP, and Feline Leukemia.","url":"https://aspirevethospital.com/vaccinations-germantown-md/","performer":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Dog & Cat Vaccinations in Germantown, MD | Aspire Veterinary Hospital"
+  description="Core and lifestyle vaccines for dogs and cats — Rabies, DHPP, FVRCP, Lepto, Bordetella, Lyme, and more. Aspire Veterinary Hospital follows AAHA guidelines."
+  canonical="https://aspirevethospital.com/vaccinations-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/10/wellness-care-2_s1.jpg"
+  schemaJson={schemaJson}
+  currentService="wellness-care"
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2025/10/wellness-care-2_s1.jpg"
+  heroEyebrow="Wellness Care"
+  heroH1="Vaccinations"
+  tabs={tabs}
+  activeSlug="vaccinations"
+  tabsLabel="Wellness services"
+>
+  <p>Vaccinations are a reliable way to protect pets from preventable diseases that can cause serious illness or death. Our doctors have carefully chosen each vaccine we administer to balance effectiveness with the highest standards of safety. By strengthening the immune system before exposure, we help pets enjoy longer, healthier lives while also reducing the spread of illness in the community. This preventive step gives pets the best chance to thrive.</p>
+
+  <SpeciesToggle label1="Dog Vaccinations" label2="Cat Vaccinations" pane1Id="dog-vaccines" pane2Id="cat-vaccines">
+    <Fragment slot="pane-1">
+      <p>Below you can learn more what each vaccination protects against and which vaccine manufacturers we choose to partner with. A heart next to the vaccine indicates that the vaccine is required at our hospital as part of core wellness vs a life-style recommendation.</p>
+      <hr />
+      <h3>Rabies Vaccination <img src="https://aspirevethospital.com/wp-content/uploads/2025/12/heart-red.png" alt="Required" style="width:20px;height:auto;vertical-align:middle;display:inline-block;" /></h3>
+      <p>Rabies is a deadly virus that can affect both pets and people, making vaccination a critical public health measure. Once symptoms appear, the disease is always fatal, but it is entirely preventable with timely vaccination. Maryland law requires all dogs to be vaccinated against rabies, and keeping this vaccine current ensures both your pet and your family stay safe.</p>
+      <hr />
+      <h3>Distemper (DHPP) <img src="https://aspirevethospital.com/wp-content/uploads/2025/12/heart-red.png" alt="Required" style="width:20px;height:auto;vertical-align:middle;display:inline-block;" /></h3>
+      <p>The distemper combination vaccine protects against several highly contagious diseases that can be fatal in some cases, including distemper, parvovirus, adenovirus (hepatitis), and parainfluenza. These illnesses can cause severe respiratory, gastrointestinal, and neurological problems in dogs. Vaccinating is the most effective way to keep your pet protected from diseases that spread quickly in the environment and between animals.</p>
+      <hr />
+      <h3>Leptospirosis (Lepto) <img src="https://aspirevethospital.com/wp-content/uploads/2025/12/heart-red.png" alt="Required" style="width:20px;height:auto;vertical-align:middle;display:inline-block;" /></h3>
+      <p>Leptospirosis is a bacterial infection spread through water and soil contaminated by wildlife urine. Dogs can become infected by drinking or swimming in contaminated water, and the disease can also spread to people (zoonotic). Lepto can cause serious kidney and liver damage, but vaccination greatly reduces the risk, making it an important safeguard for dogs living in both urban and rural environments.</p>
+      <hr />
+      <h3>Bordetella (Kennel Cough)</h3>
+      <p>Bordetella is one of the leading causes of "kennel cough," a contagious respiratory infection that spreads readily where dogs gather—boarding facilities, dog parks, training classes, or grooming salons. While it is usually not life-threatening, kennel cough can cause persistent coughing and discomfort, lead to secondary infections, and it can spread rapidly through a community of pets. Vaccination helps protect your dog and prevents outbreaks in shared spaces.</p>
+      <hr />
+      <h3>Influenza</h3>
+      <p>Canine influenza is a contagious respiratory illness caused by dog-specific flu strains, different from the human flu. It spreads where dogs mingle and can lead to coughing, fever, runny nose, tiredness, reduced appetite, and can lead to secondary infections. Any dog can catch it, but the risk is higher for pets with respiratory issues, lowered immunity, or lots of close contact with other dogs. Vaccination helps prevent outbreaks by reducing the risk and severity of illness and limiting spread.</p>
+      <hr />
+      <h3>Lyme Disease</h3>
+      <p>Lyme disease is carried by ticks, which are common in Maryland's wooded and grassy areas. In dogs, Lyme can cause painful joint swelling, fever, lethargy, and, in some cases, life threatening kidney damage. Vaccination, along with good tick prevention, provides a strong line of defense against this debilitating illness and is especially important for active dogs who spend time outdoors. <a href="/preventative-care-germantown-md/">More information on the preventatives we offer is available one tab over!</a></p>
+    </Fragment>
+    <Fragment slot="pane-2">
+      <p>Below you can learn more what each vaccination protects against and which vaccine manufacturers we choose to partner with. A heart next to the vaccine indicates that the vaccine is required as part of core wellness vs a life-style recommendation.</p>
+      <hr />
+      <h3>Rabies Vaccination <img src="https://aspirevethospital.com/wp-content/uploads/2025/12/heart-red.png" alt="Required" style="width:20px;height:auto;vertical-align:middle;display:inline-block;" /></h3>
+      <p>Rabies is a fatal virus that threatens both pets and people, making vaccination essential. Cats are especially at risk since they may roam outdoors or come into contact with wildlife. Once symptoms appear, the disease is always fatal, but it is entirely preventable with timely vaccination. Maryland law requires rabies vaccination, and keeping it current protects your cat, your family, and your community.</p>
+      <hr />
+      <h3>Distemper (FVRCP) <img src="https://aspirevethospital.com/wp-content/uploads/2025/12/heart-red.png" alt="Required" style="width:20px;height:auto;vertical-align:middle;display:inline-block;" /></h3>
+      <p>The FVRCP vaccine protects against feline viral rhinotracheitis (herpes virus), calicivirus, and panleukopenia (feline distemper) —three dangerous and highly contagious diseases. These can cause respiratory infections, severe diarrhea, dehydration, and even death in young or unvaccinated cats. Vaccination is the most effective way to ensure your cat stays safe from these common threats.</p>
+      <hr />
+      <h3>Leukemia (FeLV)</h3>
+      <p>FeLV is a contagious virus that weakens a cat's immune system, leaving them vulnerable to other infections, anemia, and even certain cancers. It spreads through close contact, such as grooming, sharing food bowls, or bites from infected cats. Vaccination provides important protection, especially for kittens and cats that go outdoors or live with other cats. <a href="/wellness-laboratory-diagnostics-germantown-md/">Learn about our infectious disease testing recommendations for FIV & FeLV for at risk cats in our diagnostics section.</a></p>
+    </Fragment>
+  </SpeciesToggle>
+
+  <hr />
+
+  <h3>Our Trusted Partners</h3>
+  <div class="partner-row">
+    <img src="https://aspirevethospital.com/wp-content/uploads/2025/11/Boehringer-logo.png" alt="Boehringer Ingelheim" style="max-width:200px;" />
+    <p>With more than 35 years of vaccine development expertise, Boehringer Ingelheim is our trusted source for our Rabies Vaccines.</p>
+  </div>
+  <div class="partner-row">
+    <img src="https://aspirevethospital.com/wp-content/uploads/2025/11/Elanco-logo.png" alt="Elanco" style="max-width:200px;" />
+    <p>Elanco has a proven history of focus on the safety and comfort of patients when it comes to their vaccines, which is why we source our Distemper, Lepto, Lyme, and Bordetella vaccines from Elanco.</p>
+  </div>
+
+  <div class="callout">
+    <strong>Aspire requires all patients to comply with the latest AAHA Vaccination Guidelines for the safety of all patients and staff.</strong> This means — DHPP, Rabies, and Leptospirosis for dogs and FVRCP and Rabies for cats.
+    <br /><br />
+    <a href="https://www.aaha.org/resources/2022-aaha-canine-vaccination-guidelines/" target="_blank" rel="noopener noreferrer">Dog Vaccine Guidelines →</a>&nbsp;
+    <a href="https://www.aaha.org/resources/2020-aahaaafp-feline-vaccination-guidelines/" target="_blank" rel="noopener noreferrer">Cat Vaccine Guidelines →</a>
+  </div>
+
+<style is:global>
+  .partner-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 24px 0;
+    padding: 20px 0;
+    border-top: 1px solid #ECE6DF;
+  }
+  .partner-row:first-of-type { border-top: none; padding-top: 0; }
+  .partner-row img { max-width: 200px; height: auto; flex-shrink: 0; }
+  .partner-row p { margin: 0; font-size: 16px; }
+</style>
+</ServiceLayout>

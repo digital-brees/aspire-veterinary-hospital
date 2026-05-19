@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JobPageLayout from '../components/JobPageLayout.astro';
+import JobToggle from '../components/JobToggle.astro';
+
+const schemaJson = `{"@context":"https://schema.org","@type":"JobPosting","title":"Sports Medicine Technician","datePosted":"2025-11-11","employmentType":"FULL_TIME","baseSalary":{"@type":"MonetaryAmount","currency":"USD","value":{"@type":"QuantitativeValue","minValue":18,"maxValue":22,"unitText":"HOUR"}},"hiringOrganization":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","sameAs":"https://aspirevethospital.com/","logo":"https://aspirevethospital.com/wp-content/uploads/2025/07/AVH-logo-mob.png"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}},"description":"Aspire Veterinary Hospital is seeking a motivated and detail-oriented Sports Medicine Technician to support our underwater treadmill program for companion pets and working K9s.","url":"https://aspirevethospital.com/sports-medicine-technician-germantown-md/"}`;
+---
+
+<BaseLayout
+  title="Sports Medicine Technician Job in Germantown, MD | Aspire Veterinary Hospital"
+  description="Now hiring a Sports Medicine Technician at Aspire Veterinary Hospital — underwater treadmill, conditioning, and rehab support role in Germantown, MD."
+  canonical="https://aspirevethospital.com/sports-medicine-technician-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/11/Underwater-Treadmill-Assistant-s1-1.jpg"
+  ogType="article"
+  schemaJson={schemaJson}
+  currentService="careers"
+>
+  <JobPageLayout
+    jobTitle="Sports Medicine Technician"
+    heroImage="https://aspirevethospital.com/wp-content/uploads/2025/11/Underwater-Treadmill-Assistant-s1-1.jpg"
+    location="Darnestown, MD"
+    jobType="Full-Time"
+    compensation="$18–$22/hour"
+    contactEmail="operations@aspirevethospital.com"
+    postedDate="November 11, 2025"
+  >
+    <h3>Overview</h3>
+    <p>Aspire Veterinary Hospital is seeking a motivated and detail-oriented Sports Medicine Technician to join our growing team. This role is designed for individuals who have entry-level experience in a veterinary or fitness environment, a background in animal behavior or training, and a passion for fitness and exercise.</p>
+    <p>The Sports Medicine Technician will focus primarily on supporting our underwater treadmill program, which plays a key role in the recovery, conditioning, and performance of both companion pets and working K9s. This is a unique opportunity for candidates who are looking to build a career in veterinary rehabilitation or animal fitness.</p>
+    <p>This position will work closely with our veterinary team to ensure smooth operation of hydrotherapy sessions while upholding the highest standards of safety, cleanliness, and patient comfort.</p>
+
+    <JobToggle title="Key Responsibilities">
+      <h4>Underwater Treadmill Operation & Patient Handling</h4>
+      <ul>
+        <li>Assist with the setup and operation of two H20 Oasis Pro underwater treadmills within the dedicated aquatics room of our hospital</li>
+        <li>Handle, guide, and support patients in and out of the treadmill safely</li>
+        <li>Monitor animal behavior and comfort during conditioning sessions</li>
+        <li>Record session details and patient responses for follow-up care and planning</li>
+        <li>Communicate effectively with the veterinary team and client/trainer about observations and patient status</li>
+      </ul>
+
+      <h4>Cleaning, Maintenance & Safety Protocols</h4>
+      <ul>
+        <li>Adhere to strict cleaning and disinfection protocols before and after each session</li>
+        <li>Perform daily maintenance checks and weekly deep cleans of treadmill equipment to ensure proper functionality of all components</li>
+        <li>Document all maintenance and cleaning activities in accordance with hospital SOPs</li>
+        <li>Uphold Fear Free handling techniques to minimize patient stress during sessions</li>
+      </ul>
+
+      <h4>Client Interaction & Education</h4>
+      <ul>
+        <li>Greet and guide clients through the underwater treadmill process</li>
+        <li>Provide clear post-session feedback on performance and behavior</li>
+        <li>Support client education by answering basic questions about physical conditioning and hydrotherapy benefits</li>
+        <li>Relay patient updates or concerns to the veterinary team for follow-up communication</li>
+      </ul>
+
+      <h4>Administrative Support</h4>
+      <ul>
+        <li>Schedule and confirm appointments in the hospital's PIMS system (EzyVet)</li>
+        <li>Assist in entering session notes and session details into patient records</li>
+        <li>Help prepare handouts, wellness packets, and educational material as needed</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Who Should Apply">
+      <p>This position is ideal for individuals who:</p>
+      <ul>
+        <li>Have a background or strong interest in <strong>animal fitness, rehabilitation, and/or training</strong></li>
+        <li>Have worked in a veterinary setting or animal care facility (grooming, daycare, shelter, dog training, aquatic center, etc.)</li>
+        <li>Are comfortable with physical tasks like lifting dogs, handling wet equipment, and cleaning</li>
+        <li>Desire to pursue future credentials such as <strong>CCAT, CCRP, or animal training certifications</strong></li>
+        <li>Are observant, hands-on learners who thrive in an active and animal-focused environment</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Preferred Qualifications">
+      <ul>
+        <li>Entry-level experience in a veterinary hospital, rehab facility, or canine aquatic center</li>
+        <li>Education in canine training or fitness/conditioning</li>
+        <li>Experience handling dogs of varying sizes and temperaments</li>
+        <li>Familiarity with cleanliness protocols, PPE, and safe restraint techniques</li>
+        <li>Prior exposure to fitness instruction, physical therapy, or similar fields</li>
+        <li>Strong communication skills and a calm, positive demeanor</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Growth Opportunities">
+      <p>As a member of Aspire's care team, you'll receive:</p>
+      <ul>
+        <li>Structured onboarding</li>
+        <li>Continued training and mentorship</li>
+        <li>Career path development toward Level II or Credentialed (ex: CCAT/CCRP) position focused on canine fitness, training, working dog care, and client education</li>
+        <li>Exposure to specialized care (aquatic and land oriented rehabilitation & fitness, working K9s) within a collaborative and upbeat veterinary hospital setting</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Schedule & Benefits">
+      <ul>
+        <li>Full-Time; 36–40 hrs/wk
+          <ul>
+            <li>Hospital Hours: M–F 8am–6pm, Saturdays 9am–1pm</li>
+            <li>Flexible Weekly Schedule + Consistent Saturday coverage</li>
+          </ul>
+        </li>
+        <li>Competitive pay based on experience</li>
+        <li>Health benefits, 401k matching, and paid time off available for full-time employees</li>
+        <li>Veterinary care and product discounts for employee pets</li>
+        <li>Located in a rapidly growing and pet-loving community in Montgomery County, MD</li>
+      </ul>
+    </JobToggle>
+
+    <p><strong>Aspire Veterinary Hospital is an equal opportunity employer. We celebrate diversity and are committed to creating an inclusive environment for all employees.</strong></p>
+
+    <p>If you're ready to blend your love of animals with your passion for movement and wellness, apply today and help pets live stronger, healthier lives—one step at a time.</p>
+  </JobPageLayout>
+</BaseLayout>

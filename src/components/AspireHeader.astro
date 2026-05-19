@@ -1,0 +1,398 @@
+---
+// AspireHeader.astro — site header / navigation, sits over hero.
+// `currentService` marks the matching Patient Services dropdown item as current.
+export interface NavChild {
+  label: string;
+  href: string;
+  slug?: string;
+}
+export interface NavLink {
+  label: string;
+  href: string;
+  children?: NavChild[];
+}
+
+export interface Props {
+  logoImg?: string;
+  navLeft?: NavLink[];
+  navRight?: NavLink[];
+  currentService?: string;
+}
+
+const {
+  logoImg = 'https://aspirevethospital.com/wp-content/uploads/2025/08/AVH_Dark-BG-logo-200x216-notag.png',
+  currentService,
+  navLeft = [
+    {
+      label: 'Home',
+      href: '/',
+      children: [
+        { label: 'Our Team', href: '/our-team/', slug: 'our-team' },
+        { label: 'Career Opportunities', href: '/careers-germantown-md/', slug: 'careers' },
+      ],
+    },
+    {
+      label: 'Patient Services',
+      href: '#',
+      children: [
+        // All flat SEO slugs with -germantown-md suffix.
+        // Wellness + Illness pages are built. Others are URL-reserved; pages get built when content lands.
+        { label: 'Wellness Care', href: '/wellness-exams-germantown-md/', slug: 'wellness-care' },
+        { label: 'Illness Care', href: '/urgent-care-germantown-md/', slug: 'illness-care' },
+        { label: 'Surgery & Dentistry', href: '/surgery-and-dentistry-germantown-md/', slug: 'surgery-and-dentistry' },
+        { label: 'Geriatric Care', href: '/geriatric-care-germantown-md/', slug: 'geriatric-care' },
+        { label: 'Acupuncture & Pain Management', href: '/acupuncture-pain-management-germantown-md/', slug: 'acupuncture-and-pain-management' },
+        { label: 'Joint Injections & Regenerative Medicine', href: '/joint-injections-regenerative-medicine-germantown-md/', slug: 'joint-injections-regenerative-medicine' },
+        { label: 'Retired K9 Care', href: '/retired-k9-care-germantown-md/', slug: 'retired-k9-care' },
+        { label: 'Cherry Payment Plans', href: '/cherry-payment-plans/', slug: 'cherry-payment-plans' },
+      ],
+    },
+  ],
+  navRight = [
+    { label: 'Rehab', href: '/canine-rehabilitation-germantown-md/' },
+    { label: 'Fitness & Aquatics', href: '/canine-fitness-and-aquatics-germantown-md/' },
+    { label: 'Contact', href: '/contact/' },
+  ],
+} = Astro.props;
+---
+
+<header class="aspire-header">
+  <nav class="aspire-header__nav">
+    {navLeft.map((item) => (
+      <div class="aspire-header__nav-item">
+        <a href={item.href}>
+          {item.label}{item.children && item.children.length > 0 && <span class="caret">▾</span>}
+        </a>
+        {item.children && item.children.length > 0 && (
+          <div class="aspire-header__dropdown">
+            {item.children.map((child) => (
+              <a href={child.href} class={child.slug && child.slug === currentService ? 'is-current' : ''}>
+                <span>{child.label}</span>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+  </nav>
+
+  <a class="aspire-header__logo" href="/" aria-label="Aspire Veterinary Hospital home">
+    <img src={logoImg} alt="Aspire Veterinary Hospital" />
+  </a>
+
+  <nav class="aspire-header__nav aspire-header__nav--right">
+    {navRight.map((item) => (
+      <div class="aspire-header__nav-item">
+        <a href={item.href}>{item.label}</a>
+      </div>
+    ))}
+  </nav>
+
+  {/* Mobile hamburger — only visible <= 900px */}
+  <button
+    class="aspire-header__hamburger"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    aria-controls="aspire-mobile-drawer"
+  >
+    <span class="aspire-header__hamburger-bar"></span>
+    <span class="aspire-header__hamburger-bar"></span>
+    <span class="aspire-header__hamburger-bar"></span>
+  </button>
+</header>
+
+{/* Mobile slide-down drawer */}
+<div class="aspire-mobile-drawer" id="aspire-mobile-drawer" hidden>
+  <div class="aspire-mobile-drawer__inner">
+    {[...navLeft, ...navRight].map((item) => (
+      <div class="aspire-mobile-drawer__group">
+        {item.children && item.children.length > 0 ? (
+          <>
+            <div class="aspire-mobile-drawer__heading">{item.label}</div>
+            {item.children.map((child) => (
+              <a
+                class={`aspire-mobile-drawer__link${child.slug && child.slug === currentService ? ' is-current' : ''}`}
+                href={child.href}
+              >{child.label}</a>
+            ))}
+          </>
+        ) : (
+          <a class="aspire-mobile-drawer__link aspire-mobile-drawer__link--top" href={item.href}>{item.label}</a>
+        )}
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .aspire-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 50;
+    padding: 30px 30px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    column-gap: 80px;
+    transition: padding 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .aspire-header.is-scrolled {
+    padding: 12px 30px;
+    background-color: rgba(47, 65, 87, 0.94);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  }
+  .aspire-header.is-scrolled .aspire-header__logo { width: 70px; }
+  .aspire-header__nav {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    font-family: var(--font-body);
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(241, 242, 242);
+    line-height: 1.4;
+    justify-content: flex-end;
+  }
+  .aspire-header__nav--right { justify-content: flex-start; }
+  .aspire-header__nav a {
+    color: rgb(241, 242, 242);
+    padding: 2px 8px 4px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+  .aspire-header__nav a:hover { color: var(--aspire-tan); }
+  .aspire-header__nav .caret { font-size: 9px; margin-left: 4px; opacity: 0.7; }
+
+  .aspire-header__nav-item { position: relative; }
+  .aspire-header__dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%) translateY(-8px);
+    width: 220px;
+    padding: 0;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 20px 32px -12px rgba(0, 102, 102, 0.2);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+    z-index: 100;
+    overflow: hidden;
+  }
+  .aspire-header__nav-item:hover .aspire-header__dropdown,
+  .aspire-header__nav-item:focus-within .aspire-header__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .aspire-header__dropdown a {
+    display: block;
+    position: relative;
+    padding: 10px 20px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.4;
+    color: var(--aspire-navy);
+    text-decoration: none;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+  .aspire-header__dropdown a span { transition: margin-left 0.5s ease, color 0.5s ease; }
+  .aspire-header__dropdown a:hover span { margin-left: 25px; color: var(--aspire-tan); }
+  .aspire-header__dropdown a::after {
+    content: ""; position: absolute;
+    left: 20px; top: 50%;
+    width: 0; height: 1px;
+    background: var(--aspire-navy);
+    transition: width 0.5s ease;
+    pointer-events: none;
+  }
+  .aspire-header__dropdown a:hover::after { width: 16px; }
+  .aspire-header__dropdown a.is-current { color: var(--aspire-tan); font-weight: 500; }
+
+  .aspire-header__logo {
+    display: block;
+    width: 130px;
+    line-height: 0;
+    transition: width 0.3s ease;
+  }
+  .aspire-header__logo img { width: 100%; display: block; }
+
+  /* Hamburger — hidden on desktop, shown <=900px */
+  .aspire-header__hamburger {
+    display: none;
+    position: relative;
+    background: transparent;
+    border: 0;
+    padding: 8px;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    align-items: center;
+    justify-content: center;
+    z-index: 60;
+  }
+  .aspire-header__hamburger-bar {
+    position: absolute;
+    left: 10px;
+    width: 24px;
+    height: 2px;
+    background: #fff;
+    border-radius: 1px;
+    transition: transform 0.25s ease, opacity 0.2s ease, top 0.25s ease;
+  }
+  .aspire-header__hamburger-bar:nth-child(1) { top: 14px; }
+  .aspire-header__hamburger-bar:nth-child(2) { top: 21px; }
+  .aspire-header__hamburger-bar:nth-child(3) { top: 28px; }
+  .aspire-header__hamburger[aria-expanded="true"] .aspire-header__hamburger-bar:nth-child(1) {
+    top: 21px;
+    transform: rotate(45deg);
+  }
+  .aspire-header__hamburger[aria-expanded="true"] .aspire-header__hamburger-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .aspire-header__hamburger[aria-expanded="true"] .aspire-header__hamburger-bar:nth-child(3) {
+    top: 21px;
+    transform: rotate(-45deg);
+  }
+
+  @media (max-width: 900px) {
+    .aspire-header {
+      padding: 14px 20px;
+      grid-template-columns: 1fr auto 1fr;
+      column-gap: 16px;
+    }
+    .aspire-header.is-scrolled { padding: 10px 20px; }
+    .aspire-header__nav { display: none; }
+    .aspire-header__logo { width: 96px; }
+    .aspire-header.is-scrolled .aspire-header__logo { width: 70px; }
+    .aspire-header__hamburger { display: flex; justify-self: end; grid-column: 3; }
+    /* Spacer so logo stays centered: empty first column */
+    .aspire-header::before { content: ""; grid-column: 1; }
+  }
+</style>
+
+<style is:global>
+  /* Mobile drawer — global so script-toggled classes work without scoped-style stripping */
+  .aspire-mobile-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 49;
+    background: rgba(47, 65, 87, 0.97);
+    backdrop-filter: blur(8px);
+    overflow-y: auto;
+    padding: 86px 24px 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+  .aspire-mobile-drawer.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+  .aspire-mobile-drawer__inner {
+    max-width: 480px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .aspire-mobile-drawer__group {
+    border-top: 1px solid rgba(231, 226, 216, 0.18);
+    padding-top: 16px;
+  }
+  .aspire-mobile-drawer__group:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .aspire-mobile-drawer__heading {
+    font-family: var(--font-display);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--aspire-tan);
+    margin-bottom: 10px;
+  }
+  .aspire-mobile-drawer__link {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 17px;
+    color: #fff;
+    padding: 10px 0;
+    text-decoration: none;
+    line-height: 1.35;
+  }
+  .aspire-mobile-drawer__link--top {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+  }
+  .aspire-mobile-drawer__link.is-current { color: var(--aspire-tan); }
+  .aspire-mobile-drawer__link:hover,
+  .aspire-mobile-drawer__link:focus-visible { color: var(--aspire-tan); }
+  body.aspire-drawer-open { overflow: hidden; }
+</style>
+
+<script>
+  (function() {
+    const header = document.querySelector('.aspire-header');
+    if (!header) return;
+    const onScroll = () => {
+      if (window.scrollY > 80) header.classList.add('is-scrolled');
+      else header.classList.remove('is-scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Hamburger toggle
+    const btn = document.querySelector('.aspire-header__hamburger');
+    const drawer = document.getElementById('aspire-mobile-drawer');
+    if (!btn || !drawer) return;
+
+    const setOpen = (open) => {
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      if (open) {
+        drawer.hidden = false;
+        // next frame so transition runs
+        requestAnimationFrame(() => drawer.classList.add('is-open'));
+        document.body.classList.add('aspire-drawer-open');
+      } else {
+        drawer.classList.remove('is-open');
+        document.body.classList.remove('aspire-drawer-open');
+        drawer.addEventListener('transitionend', function onEnd() {
+          if (btn.getAttribute('aria-expanded') === 'false') drawer.hidden = true;
+          drawer.removeEventListener('transitionend', onEnd);
+        });
+      }
+    };
+
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') !== 'true';
+      setOpen(open);
+    });
+
+    // Close on escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') setOpen(false);
+    });
+
+    // Close when any drawer link is clicked (so in-page nav still works)
+    drawer.addEventListener('click', (e) => {
+      const target = e.target;
+      if (target instanceof HTMLElement && target.closest('.aspire-mobile-drawer__link')) {
+        setOpen(false);
+      }
+    });
+  })();
+</script>

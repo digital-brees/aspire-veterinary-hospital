@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceHero from '../components/ServiceHero.astro';
+
+const schemaJson = `{"@context":"https://schema.org","@type":"WebPage","name":"Careers Form","description":"Application form for veterinary career opportunities at Aspire Veterinary Hospital in Germantown, MD.","url":"https://aspirevethospital.com/careers-form/","isPartOf":{"@type":"WebSite","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/"}}`;
+---
+
+<BaseLayout
+  title="Careers Form | Aspire Veterinary Hospital"
+  description="Apply for an open position at Aspire Veterinary Hospital — submit your application directly through our careers form."
+  canonical="https://aspirevethospital.com/careers-form/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/08/form-bg.jpg"
+  ogType="website"
+  schemaJson={schemaJson}
+  currentService="careers"
+>
+  <ServiceHero
+    bgImage="https://aspirevethospital.com/wp-content/uploads/2025/08/form-bg.jpg"
+    eyebrow="Aspire Veterinary Hospital"
+    h1="Careers Form"
+    lede="Apply for an open position. Fill out the form below and our team will be in touch."
+  />
+
+  <section class="careers-form-section">
+    <div class="careers-form-section__inner">
+      <div class="careers-form-embed">
+        {/* JotForm `jsform` script injects the form inline. `is:inline` keeps it
+            out of Astro's module bundler so it can run as-is. */}
+        <script is:inline type="text/javascript" src="https://form.jotform.com/jsform/252242188573460"></script>
+        <noscript>
+          <p>This application form requires JavaScript. If you don't see the form, please
+            <a href="https://form.jotform.com/252242188573460" target="_blank" rel="noopener noreferrer">open it directly on JotForm</a>
+            or email <a href="mailto:operations@aspirevethospital.com">operations@aspirevethospital.com</a>.
+          </p>
+        </noscript>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .careers-form-section {
+    background: var(--aspire-section-bg);
+    padding: 60px 0 100px;
+  }
+  .careers-form-section__inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .careers-form-embed {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(47, 65, 87, 0.06);
+    min-height: 600px;
+  }
+  /* JotForm-injected element has inline width: 10px; min-width: 100%; — make sure
+     our wrapper doesn't constrain it. The injected iframe/form is responsive. */
+  .careers-form-embed :global(form),
+  .careers-form-embed :global(iframe) {
+    width: 100% !important;
+    min-width: 100% !important;
+  }
+  @media (max-width: 720px) {
+    .careers-form-section__inner { padding: 0 16px; }
+    .careers-form-embed { padding: 12px; }
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import SectionWithImage from '../components/SectionWithImage.astro';
+
+const schemaJson = `{"@context":"https://schema.org","@type":"Service","name":"Acupuncture & Pain Management","description":"Multimodal veterinary pain management for dogs and cats including acupuncture, manual therapy (massage, stretching, joint mobilization), and Class 4 therapeutic laser (photobiomodulation).","url":"https://aspirevethospital.com/acupuncture-pain-management-germantown-md/","provider":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Veterinary Acupuncture & Pain Management in Germantown, MD | Aspire Veterinary Hospital"
+  description="Multimodal pain management for pets — acupuncture, manual therapy (massage, stretching, mobilization), and therapeutic Class 4 laser to relieve pain and support mobility."
+  canonical="https://aspirevethospital.com/acupuncture-pain-management-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2026/01/acupuncture-sec1.jpg"
+  schemaJson={schemaJson}
+  currentService="acupuncture-and-pain-management"
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2026/01/acupuncture-sec1.jpg"
+  heroH1="Acupuncture & Pain Management"
+  heroLede="Personalized therapies to relieve pain, improve mobility, and support long-term comfort."
+>
+  <p>We believe the best approach to pain management is multimodal because pets of all ages experience pain in their lifetime. Whether your pet is dealing with age-related discomfort, recovering from surgery, or needing palliative support, the services below allow us to work closely with you to determine the right level of care and the most appropriate therapeutic path.</p>
+
+  <hr />
+
+  <SectionWithImage
+    image="https://aspirevethospital.com/wp-content/uploads/2026/01/acupuncture-thearpy.jpg"
+    imageAlt="Veterinarian performing acupuncture on a dog"
+  >
+    <h3>Acupuncture</h3>
+    <p>Acupuncture is a form of supportive medicine that is beneficial in the treatment of a variety of acute and chronic conditions. Acupuncture involves the insertion of sterile, thin needles into specific points on the body to stimulate the circulatory and nervous systems, relieve pain, and promote healing. This is a form of neuromodulation; a technique that positively impacts the regulatory systems of the body. Dr. Matheny's acupuncture practice combines traditional acupuncture techniques with an understanding of anatomy and physiology supported by evidence-based medicine.</p>
+  </SectionWithImage>
+
+  <hr />
+
+  <SectionWithImage
+    image="https://aspirevethospital.com/wp-content/uploads/2026/01/manual-therapy-massage.jpg"
+    imageAlt="Veterinary professional performing manual therapy massage on a pet"
+  >
+    <h3>Manual Therapy</h3>
+    <p>Manual therapy is a branch of rehabilitative medicine that involves hands-on techniques like massage, stretching, and joint mobilization to improve mobility, function, and to reduce pain. This type of treatment can be beneficial for a wide range of conditions, including musculoskeletal issues, such as arthritis, post-surgical recovery, rehabilitation after an injury, neurological conditions, age-related mobility issues, and general relaxation and stress reduction to improve overall wellbeing. The specific techniques used depend on your pet's condition, size, species, and individual needs.</p>
+  </SectionWithImage>
+
+  <hr />
+
+  <SectionWithImage
+    image="https://aspirevethospital.com/wp-content/uploads/2026/01/laser-therapy.jpg"
+    imageAlt="Class 4 therapeutic laser being applied to a pet"
+    sticky
+  >
+    <h3 id="Therapeutic_Laser">Therapeutic Laser</h3>
+    <p>Therapeutic laser or photobiomodulation (sometimes also called "cold laser") is a non-invasive therapy that uses specific wavelengths of light applied to targeted areas of the body to alleviate pain, reduce inflammation, and promote tissue healing by improving local circulation and cellular metabolism. Class 4 lasers emit higher power levels compared to lower classes of laser, such as Class 1 or Class 3 lasers. The higher power levels allow for deeper tissue penetration and faster treatment times.</p>
+
+    <p>During laser therapy, a handheld device is applied directly to the skin or fur over the targeted treatment area. The device emits specific wavelengths of light that penetrate the skin and are absorbed by the cells, where it stimulates various cellular processes. Manual therapy, stretches, or massage can be done during the laser treatment to maximize the benefit of the session.</p>
+
+    <p>Laser therapy is generally considered to be a very safe treatment with minimal side effects. People who receive laser therapy describe feelings of temporary tingling, warmth, or mild discomfort at the treatment site. A variety of conditions can successfully be treated by laser therapy, including musculoskeletal conditions like arthritis, athletic injuries, or after surgery, neck or back pain, and neurological conditions including paralysis. Some conditions like certain cancers should not be treated with laser therapy. We will discuss your pet's individual medical recommendations with you and help determine if laser therapy is the right choice for your pet.</p>
+  </SectionWithImage>
+</ServiceLayout>

@@ -1,0 +1,33 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+
+const tabs = [
+  { slug: 'urgent-care', label: 'Urgent Care', href: '/urgent-care-germantown-md/' },
+  { slug: 'chronic-care', label: 'Chronic Care', href: '/chronic-care-germantown-md/' },
+  { slug: 'illness-laboratory-diagnostics', label: 'Laboratory Diagnostics', href: '/illness-laboratory-diagnostics-germantown-md/' },
+  { slug: 'illness-imaging-diagnostics', label: 'Imaging Diagnostics', href: '/illness-imaging-diagnostics-germantown-md/' },
+];
+const schemaJson = `{"@context":"https://schema.org","@type":"MedicalProcedure","name":"Chronic Disease Care for Pets","description":"Long-term management of chronic conditions including arthritis, allergies, endocrine disease, kidney disease, and heart disease — with individualized, whole-picture treatment plans.","url":"https://aspirevethospital.com/chronic-care-germantown-md/","performer":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Chronic Disease Care for Pets in Germantown, MD | Aspire Veterinary Hospital"
+  description="Long-term care for arthritis, allergies, kidney disease, heart disease, and other chronic pet conditions. Individualized plans at Aspire Veterinary Hospital."
+  canonical="https://aspirevethospital.com/chronic-care-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/10/sick-care-s1.jpg"
+  schemaJson={schemaJson}
+  currentService="illness-care"
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2025/10/sick-care-s1.jpg"
+  heroEyebrow="Illness Care"
+  heroH1="Chronic Care"
+  tabs={tabs}
+  activeSlug="chronic-care"
+  tabsLabel="Illness services"
+>
+  <p>Chronic care focuses on managing long-term or recurring medical conditions such as arthritis, allergies, endocrine disease, kidney disease, or heart disease. While these conditions cannot be cured outright, they can be controlled to help pets live more comfortable, fulfilling lives. According to leading veterinary organizations, chronic illnesses require ongoing monitoring, individualized treatment plans, and periodic adjustments as a pet\'s needs change over time.</p>
+
+  <p>At Aspire, we approach chronic care as a whole-picture partnership. Our team takes time to understand not just the disease(s), but also the real-world factors that shape how your pet can be cared for: your home environment, your family\'s daily routines, your budget, prescription availability, your pet\'s mobility and comfort, and the resources you realistically have day-to-day. Every treatment plan is built with compassion, practicality, and transparency so it truly fits your life, not an idealized version of it.</p>
+
+  <p>Because many chronic conditions affect multiple body systems, our medical strategy goes beyond treating surface-level symptoms. We look for the underlying drivers of illness, recognizing that improving inflammation, pain, stress, mobility, nutrition, or organ function can often unlock better control of the outward issues you\'re seeing. Managing chronic disease is a complex puzzle, and our job is to assemble the pieces with you step by step to maximize comfort, stability, and quality of life for your pet.</p>
+</ServiceLayout>

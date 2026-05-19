@@ -1,0 +1,92 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import SplitSection from '../components/SplitSection.astro';
+import JobToggle from '../components/JobToggle.astro';
+
+const schemaJson = `{"@context":"https://schema.org","@type":"Service","name":"Canine Fitness & Aquatics","description":"Veterinarian-supervised canine fitness and aquatic therapy program — underwater treadmill, hydrotherapy, conditioning, and weight loss support for dogs and cats in Germantown, MD.","url":"https://aspirevethospital.com/canine-fitness-and-aquatics-germantown-md/","provider":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Canine Fitness & Aquatics in Germantown, MD | Aspire Veterinary Hospital"
+  description="Underwater treadmill, hydrotherapy, and proactive conditioning for dogs and cats — supporting comfort, mobility, and lifelong wellbeing in Germantown, MD."
+  canonical="https://aspirevethospital.com/canine-fitness-and-aquatics-germantown-md/"
+  ogImage="/aquatics-hero.jpg"
+  schemaJson={schemaJson}
+  heroImage="/aquatics-hero.jpg"
+  heroH1="Canine Fitness & Aquatics"
+  heroLede="Personalized care to support comfort, mobility, and overall wellbeing."
+>
+  <p>Have you ever seen a dog at a gym? Probably not. But if pets could sign up for memberships, plenty of them would. Humans have gyms, trainers, physical therapy, and massage to stay strong, flexible, and comfortable as life goes on. Pets, on the other hand, are usually told to &ldquo;take it easy&rdquo; once they slow down. In veterinary medicine, movement therapy is often reserved for rehabilitation after surgery or injury when in reality, many pets could benefit from thoughtful, guided activity long before that point.</p>
+
+  <SplitSection
+    image="https://aspirevethospital.com/wp-content/uploads/2026/02/rehab-2.jpg"
+    imageAlt="Border Collie using an underwater treadmill"
+  >
+    <h2 class="section-h2">Fitness &amp; Aquatics program</h2>
+    <p>Aspire&rsquo;s Fitness &amp; Aquatics program uses tools like underwater treadmills and targeted conditioning equipment to bring proactive physical wellness into everyday veterinary care. Aquatic therapy allows dogs (and cats!) to move comfortably while reducing stress on joints, making it a great option for seniors, working companions, and pets managing weight or stiffness. Staying comfortable often starts with keeping the body in motion. Just as people rely on massage, stretching, and strength training to stay loose and energized, pets benefit from regular, purposeful movement. Aspire is committed to rethinking how physical wellness is supported in veterinary medicine by offering safe, approachable options that help pets maintain mobility, comfort, and enjoyment of life for years to come.</p>
+  </SplitSection>
+
+  <h2 class="faq-title">Frequently Asked Questions</h2>
+
+  <JobToggle title="What are some of the use cases for hydrotherapy?">
+    <ul>
+      <li>As part of a balanced weight loss program &ndash; for cats too!</li>
+      <li>Dogs needing additional mental or physical stimulation</li>
+      <li>Dogs engaged in a conditioning program that need cross training</li>
+      <li>Puppies for the purpose of social exposure and healthy lifestyle habits</li>
+      <li>Dogs or people with medical conditions that make long leash walks accomplishable</li>
+      <li>Environments that restrict the availability of prolonged movement (living on a busy road or in an apartment building).</li>
+      <li>As part of an injury prevention or recovery rehabilitation program</li>
+    </ul>
+  </JobToggle>
+
+  <JobToggle title="How do I know if my pet is a candidate for hydrotherapy?">
+    <ul>
+      <li>Your pet may be a good candidate if s/he does not have a history of limping, injury, heart disease, respiratory illness, and dogs with managed conditions such as stable arthritis</li>
+      <li>If your pet has a history of heart disease, respiratory condition like asthma, or progressive or changing arthritis a consultation with one of our veterinarians will be required before scheduling</li>
+      <li>If your pet has had recent surgery with a healing incision, infection (urinary tract, respiratory), or diarrhea, s/he will need to wait until this condition has resolved fully before participating in hydrotherapy</li>
+      <li>Consult appointments are available to discuss your pet&rsquo;s specific circumstances and answer questions/concerns if needed</li>
+    </ul>
+  </JobToggle>
+
+  <JobToggle title="What if my dog can&rsquo;t swim?">
+    <ul>
+      <li>All sessions are monitored by an assistant.</li>
+      <li>Dogs are acclimated to the hydrotherapy chamber and never rushed.</li>
+      <li>Floatation devices are used until more advanced levels of conditioning are achieved.</li>
+      <li>If your dog is adverse to hydrotherapy, there are other fitness options available that we can talk about!</li>
+    </ul>
+  </JobToggle>
+
+  <JobToggle title="Can my cat participate in fitness and/or hydrotherapy?">
+    <ul>
+      <li>Absolutely! Many cats can be taught to perform fitness routines and can even be acclimated to the underwater treadmill</li>
+    </ul>
+  </JobToggle>
+
+  <JobToggle title="Do I have to be an active veterinary client for my pet to use the underwater treadmill?">
+    <ul>
+      <li>We want our fitness and conditioning program to be widely available to all members of our community. You do not need to be a veterinary client to bring your pet for underwater treadmill sessions but we do require a proof of vaccinations and an annual physical exam with an Aspire Veterinarian to ensure your pet remains a suitable candidate for a fitness program.</li>
+      <li>Underwater treadmill and land exercise appointments are booked in 30min timeslots. Packages are available, contact us for more information. Discounts are available for Wellness Plan members.</li>
+    </ul>
+  </JobToggle>
+
+</ServiceLayout>
+
+<style>
+  /* Live "Fitness & Aquatics program" h2 renders at ~42px. Override the 32px global. */
+  .section-h2 {
+    font-size: 42px !important;
+    line-height: 1.15;
+  }
+  /* Live FAQ heading is 24px, centered. */
+  .faq-title {
+    font-size: 24px !important;
+    text-align: center;
+    margin-top: 56px !important;
+    margin-bottom: 24px !important;
+  }
+  @media (max-width: 720px) {
+    .section-h2 { font-size: 30px !important; }
+  }
+</style>

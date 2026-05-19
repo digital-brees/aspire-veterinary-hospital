@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JobPageLayout from '../components/JobPageLayout.astro';
+import JobToggle from '../components/JobToggle.astro';
+
+const heroImage = 'https://aspirevethospital.com/wp-content/uploads/2025/11/Veterinary-Technician-III%E2%80%93IV-bg.jpg';
+
+const schemaJson = `{"@context":"https://schema.org","@type":"JobPosting","title":"Veterinary Technician III–IV","datePosted":"2025-08-24","employmentType":"FULL_TIME","baseSalary":{"@type":"MonetaryAmount","currency":"USD","value":{"@type":"QuantitativeValue","minValue":30,"maxValue":38,"unitText":"HOUR"}},"hiringOrganization":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","sameAs":"https://aspirevethospital.com/","logo":"https://aspirevethospital.com/wp-content/uploads/2025/07/AVH-logo-mob.png"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}},"description":"Advanced veterinary technician role with three pathways (Technician III-A, III-B, IV-B) for experienced unregistered technicians, RVTs, and specialty-credentialed technicians.","url":"https://aspirevethospital.com/veterinary-technician-iii-iv-germantown-md/"}`;
+---
+
+<BaseLayout
+  title="Veterinary Technician III–IV Job in Germantown, MD | Aspire Veterinary Hospital"
+  description="Advanced veterinary technician roles — Technician III-A, III-B, and IV-B pathways — for experienced and credentialed candidates at Aspire Veterinary Hospital in Germantown, MD."
+  canonical="https://aspirevethospital.com/veterinary-technician-iii-iv-germantown-md/"
+  ogImage={heroImage}
+  ogType="article"
+  schemaJson={schemaJson}
+  currentService="careers"
+>
+  <JobPageLayout
+    jobTitle="Veterinary Technician III–IV"
+    heroImage={heroImage}
+    location="Darnestown, MD"
+    jobType="Full-Time"
+    compensation="$30–$38/hour"
+    contactEmail="operations@aspirevethospital.com"
+    postedDate="August 24, 2025"
+  >
+    <h3>Overview</h3>
+    <p>Aspire Veterinary Hospital is hiring experienced veterinary professionals across three advancing levels of technical excellence: Technician III-A, Technician III-B, and Technician IV-B. This consolidated job posting allows qualified candidates to apply once and be considered for the position that best matches their experience, credential status, and career goals.</p>
+    <p>Veterinary Technicians at these levels are responsible for supporting a wide range of clinical services including routine and complex exams, diagnostics, rehabilitation, surgical preparation and recovery, and working K9 cases. Candidates in these roles are expected to have a strong command of foundational and advanced skills in their respective domains and will be entrusted with patient care responsibilities requiring minimal supervision. Technicians at Aspire Vet play a central role in patient safety, case management, and client communication—supporting both the veterinary team and the overall flow of hospital operations.</p>
+    <p>We are a hospital that emphasizes low stress interactions with all patients, and which seeks AAHA-accreditation. We serve companion animals and service/working dogs in a progressive medical setting with specialty services including surgery, dental care, rehab/conditioning, and pain management. If you're passionate about advancing your veterinary career through mentorship, mastery of skills, and compassionate communication—we'd love to meet you.</p>
+
+    <JobToggle title="Career Pathways & Key Responsibilities">
+      <h4>Technician Level III-A: Advanced Unregistered Technician</h4>
+      <p>Experienced technician with proficiency equivalent to RVT credentialing.</p>
+
+      <h4>Key Responsibilities</h4>
+      <ul>
+        <li>Perform advanced treatment, imaging, lab, and surgical protocols with minimal supervision</li>
+        <li>Mentor junior technicians in real-time during complex cases</li>
+        <li>Support working dog wellness, conditioning sessions, and post-procedure care</li>
+        <li>Contribute to advanced client communication</li>
+        <li>Maintain strict compliance with SOPs, safety protocols, and applicable laws</li>
+        <li>Collaborate with leadership on improving workflows and training protocols</li>
+        <li>Actively pursue credentialing or further specialization</li>
+      </ul>
+
+      <h4>Technician Level III-B: Credentialed Veterinary Technician (RVT)</h4>
+      <p>Registered veterinary technician in Maryland performing advanced clinical tasks, including those restricted to credentialed individuals.</p>
+
+      <h4>Key Responsibilities</h4>
+      <ul>
+        <li>Responsibilities outlined for Technician III-A</li>
+        <li>Legally perform credential-restricted tasks (e.g., anesthesia induction, dental prophylaxis, drug administration)</li>
+        <li>Serve as lead support on specialty cases involving surgery, imaging, and rehab</li>
+        <li>Guide credentialing candidates in exam prep and clinical readiness</li>
+        <li>Elevate client communication through education, triage, and recovery updates</li>
+        <li>Model low-stress practices and Aspire's collaborative care philosophy</li>
+      </ul>
+
+      <h4>Technician Level IV-B: Specialty Credentialed Technician</h4>
+      <p>Credentialed veterinary technician holding a recognized specialty certification (e.g., CCRP, VTS) with a focus on advanced rehab, surgical, or working dog care.</p>
+
+      <h4>Key Responsibilities</h4>
+      <ul>
+        <li>Lead specialty treatments including underwater treadmill sessions, strength training, and advanced conditioning</li>
+        <li>Partner with DVMs to develop protocols and care plans for specialty cases</li>
+        <li>Take the lead on complex surgical workflows (monitoring, recovery, preparation)</li>
+        <li>Train other technicians in rehab, surgical, or specialty protocols</li>
+        <li>Provide wellness and sick support for working dogs, including certifications</li>
+        <li>Serve as a key contributor in Aspire Vet's specialty service development and mentorship culture</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Level-Based Qualifications">
+      <table>
+        <thead>
+          <tr>
+            <th>Competency Area</th>
+            <th>3A (Unregistered)</th>
+            <th>3B (RVT/LVT)</th>
+            <th>4B (RVT + Specialty)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Maryland License Required</td>
+            <td>No</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <td>Specialty Certification Required</td>
+            <td>No</td>
+            <td>No</td>
+            <td>Yes (e.g., CCRP, VTS)</td>
+          </tr>
+          <tr>
+            <td>Advanced Treatment & Protocols</td>
+            <td>✔✔✔</td>
+            <td>✔✔✔</td>
+            <td>✔✔✔✔</td>
+          </tr>
+          <tr>
+            <td>Surgical Prep/Monitoring</td>
+            <td>✔✔✔</td>
+            <td>✔✔✔</td>
+            <td>✔✔✔✔</td>
+          </tr>
+          <tr>
+            <td>Working Dog & Rehab Protocols</td>
+            <td>✔✔</td>
+            <td>✔✔✔</td>
+            <td>✔✔✔✔</td>
+          </tr>
+          <tr>
+            <td>Client Communication & Education</td>
+            <td>Strong</td>
+            <td>Strong</td>
+            <td>Proficient</td>
+          </tr>
+          <tr>
+            <td>Team Mentorship & Training</td>
+            <td>Peer</td>
+            <td>Credentialed Peer</td>
+            <td>Specialty Leader</td>
+          </tr>
+          <tr>
+            <td>Legal/Controlled Substances Knowledge</td>
+            <td>Proficient</td>
+            <td>Proficient</td>
+            <td>Proficient</td>
+          </tr>
+        </tbody>
+      </table>
+    </JobToggle>
+
+    <JobToggle title="Who Should Apply">
+      <p>You may be a strong fit for this requisition if you:</p>
+      <ul>
+        <li>Are a highly skilled veterinary technician with advanced clinical experience</li>
+        <li>Thrive in a structured environment with high standards and compassionate care</li>
+        <li>Have obtained (or are actively pursuing) credentialing in Maryland (RVT)</li>
+        <li>Are pursuing or have achieved a specialty certification (e.g., CCAT/CCRP, VTS)</li>
+        <li>Excel in complex treatment plans, client education, and team mentorship</li>
+        <li>Want to grow in a practice with specialized care offerings and a commitment to career development</li>
+      </ul>
+      <p>Please indicate which technician level (3A, 3B, or 4B) you feel best aligns with your current qualifications and career trajectory when applying.</p>
+    </JobToggle>
+
+    <JobToggle title="Schedule & Benefits">
+      <ul>
+        <li>Full-Time; 36-40 hrs/wk
+          <ul>
+            <li>Hospital Hours: M–F 8am–6pm, rotating Saturdays 9am–1pm</li>
+          </ul>
+        </li>
+        <li>Competitive pay based on experience</li>
+        <li>Health benefits, 401k matching, and paid time off available for full-time employees</li>
+        <li>Licensure & CE Reimbursement</li>
+        <li>Healthcare and Product discounts for employee pets</li>
+        <li>Located in a rapidly growing and pet-loving community in Montgomery County, MD</li>
+      </ul>
+    </JobToggle>
+
+    <p><strong>Aspire Veterinary Hospital is an equal opportunity employer. We welcome all applicants who are committed to compassionate care, professional excellence, and continued growth.</strong> We celebrate diversity and are committed to creating an inclusive environment for all employees.</p>
+
+    <p>Apply today to grow, specialize, and lead in a hospital that makes a lasting impact—on pets, their people, and your profession.</p>
+  </JobPageLayout>
+</BaseLayout>

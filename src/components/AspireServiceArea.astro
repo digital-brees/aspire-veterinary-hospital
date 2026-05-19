@@ -1,0 +1,80 @@
+---
+// AspireServiceArea.astro — service-area section: heading above image on left, copy on right
+export interface Props {
+  image?: string;
+  imageAlt?: string;
+  heading?: string;     // accepts <br> for line breaks
+  paragraphs?: string[];
+}
+
+const {
+  image = 'https://aspirevethospital.com/wp-content/uploads/2025/11/home_s5_updated.jpg',
+  imageAlt = 'Golden retriever in a bandana on a Maryland waterfront',
+  heading = 'Rooted in Maryland. Trusted across the DMV.',
+  paragraphs = [
+    "Aspire Veterinary Hospital serves pets and their people throughout Germantown, Darnestown, Potomac, and the greater Washington DC metro area. Locally owned and grounded in Maryland values, we've built something different—on purpose.",
+    "If you've ever felt rushed, dismissed, or overwhelmed at the vet (and wished for something calmer, more collaborative, and easier to trust) you're not alone. We built Aspire for pet owners like you.",
+    "Here, care is built around your pet's behavior, your questions, and your goals—not just protocols. We shape every visit to reduce stress and build trust, from the first conversation to the last follow-up.",
+    "We're glad you found us, and we'd be honored to care for your pet.",
+  ],
+} = Astro.props;
+---
+
+<section class="aspire-service-area">
+  <div class="aspire-service-area__inner">
+    <h3 class="aspire-service-area__heading" set:html={heading}></h3>
+    <div class="aspire-service-area__photo" role="img" aria-label={imageAlt} style={`background-image: url('${image}');`}></div>
+    <div class="aspire-service-area__copy">
+      {paragraphs.map((p) => <p>{p}</p>)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .aspire-service-area {
+    background: var(--aspire-bg);
+    padding: var(--section-pad) 0;
+  }
+  .aspire-service-area__inner {
+    max-width: var(--container);
+    margin: 0 auto; padding: 0 32px;
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    grid-template-rows: auto auto;
+    column-gap: 80px;
+    row-gap: 40px;
+    align-items: start;
+  }
+  .aspire-service-area__heading {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    font-family: var(--font-display);
+    font-size: 32px; font-weight: 400; line-height: 1.3;
+    color: var(--aspire-text-dark);
+    margin: 0;
+  }
+  .aspire-service-area__photo {
+    grid-column: 1;
+    grid-row: 2;
+    aspect-ratio: 5 / 4;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+  }
+  .aspire-service-area__copy {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+  }
+  .aspire-service-area__copy p {
+    color: var(--aspire-text);
+    font-size: 15px; line-height: 1.8;
+    margin: 0 0 16px;
+  }
+  .aspire-service-area__copy p:last-child { margin-bottom: 0; }
+  @media (max-width: 900px) {
+    .aspire-service-area__inner { grid-template-columns: 1fr; }
+    .aspire-service-area__copy { grid-column: 1; grid-row: auto; }
+    .aspire-service-area__heading { font-size: 26px; }
+  }
+</style>

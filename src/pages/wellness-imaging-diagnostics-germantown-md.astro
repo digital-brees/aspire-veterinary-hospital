@@ -1,0 +1,46 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+
+const tabs = [
+  { slug: 'examinations', label: 'Examinations', href: '/wellness-exams-germantown-md/' },
+  { slug: 'vaccinations', label: 'Vaccinations', href: '/vaccinations-germantown-md/' },
+  { slug: 'preventative-medications', label: 'Preventative Medications', href: '/preventative-care-germantown-md/' },
+  { slug: 'wellness-laboratory-diagnostics', label: 'Laboratory Diagnostics', href: '/wellness-laboratory-diagnostics-germantown-md/' },
+  { slug: 'wellness-imaging-diagnostics', label: 'Imaging Diagnostics', href: '/wellness-imaging-diagnostics-germantown-md/' },
+  { slug: 'dental-cleaning', label: 'Routine Dental Cleaning', href: '/dog-dental-care-germantown-md/' },
+];
+const schemaJson = `{"@context":"https://schema.org","@type":"MedicalProcedure","name":"Wellness Imaging Diagnostics","description":"In-house digital radiography (X-rays), ultrasound, and dental X-rays for preventive pet care.","url":"https://aspirevethospital.com/wellness-imaging-diagnostics-germantown-md/","performer":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Pet X-Rays, Ultrasound & Dental Imaging in Germantown, MD | Aspire Veterinary Hospital"
+  description="In-house digital X-rays, ultrasound, and dental imaging for dogs and cats. Wellness imaging diagnostics at Aspire Veterinary Hospital in Germantown, MD."
+  canonical="https://aspirevethospital.com/wellness-imaging-diagnostics-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/10/wellness-care-2_s1.jpg"
+  schemaJson={schemaJson}
+  currentService="wellness-care"
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2025/10/wellness-care-2_s1.jpg"
+  heroEyebrow="Wellness Care"
+  heroH1="Imaging Diagnostics"
+  tabs={tabs}
+  activeSlug="wellness-imaging-diagnostics"
+  tabsLabel="Wellness services"
+>
+  <p>Imaging plays an important role in preventive care. By looking inside, we can establish baselines, screen for hidden changes, and catch potential problems before they cause symptoms. Our in-house imaging suite allows us to provide thorough, non-invasive assessments that support long-term wellness and peace of mind.</p>
+
+  <hr />
+
+  <h3>Digital Radiography (X-Rays)</h3>
+  <p>We are equipped with both a standard table X-ray unit and a mobile X-ray system. This dual approach allows us to capture high-quality images of bones, joints, and organs with maximum flexibility and patient comfort. Routine X-rays are valuable for monitoring growth in young pets (including PennHIP X-rays of the hips), watching for early arthritis, and checking chest or abdominal changes that may not yet be causing symptoms. The mobile unit also allows for stress-free positioning, especially for larger dogs or patients who may be uncomfortable laying down on a standard table.</p>
+
+  <hr />
+
+  <h3>Ultrasound</h3>
+  <p>Wellness ultrasounds provide a detailed view of soft tissues like the kidneys, liver, bladder, and intestines. These scans can reveal subtle changes that may not yet appear in lab results, helping us create a complete picture of your pet's internal health. For breeds at higher risk of certain conditions, ultrasounds are an especially valuable preventive tool.</p>
+
+  <hr />
+
+  <h3>Dental X-Rays</h3>
+  <p>Dental X-rays let us look beneath the gumline, where many problems hide. The vast majority of your pet's tooth structures lie above the gumline, invisible to us without X-rays. These images are captured during routine dental cleanings and help to confirm that teeth and supporting structures are healthy. By checking below the gumline, we can reassure you of your pet's oral health and address dental disease promptly.</p>
+</ServiceLayout>

@@ -1,0 +1,151 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const schemaJson = `{"@context":"https://schema.org","@type":"WebPage","name":"Cherry Payment Plans","description":"Buy now, pay later financing for veterinary care at Aspire Veterinary Hospital. No hard credit checks, 0% APR options available.","url":"https://aspirevethospital.com/cherry-payment-plans/","isPartOf":{"@type":"WebSite","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/"}}`;
+---
+
+<BaseLayout
+  title="Cherry Payment Plans | Aspire Veterinary Hospital"
+  description="Pay for veterinary care over time with Cherry. No hard credit checks, 0% APR options available, approvals up to $20,000. Apply in 60 seconds."
+  canonical="https://aspirevethospital.com/cherry-payment-plans/"
+  ogImage="https://files.withcherry.com/widgets/images/animals/1.png"
+  ogType="website"
+  schemaJson={schemaJson}
+>
+  <nav class="cherry-nav" aria-label="Breadcrumb">
+    <div class="cherry-nav__inner">
+      <a class="cherry-nav__back" href="/">
+        <span aria-hidden="true">&larr;</span>
+        <span>Home</span>
+      </a>
+      <span class="cherry-nav__title">Cherry Payment Plans</span>
+    </div>
+  </nav>
+
+  <section class="cherry-section">
+    <div class="cherry-section__inner">
+      <div id="all"></div>
+      <div id="hero"></div>
+      <div id="calculator"></div>
+      <div id="howitworks"></div>
+      <div id="faq"></div>
+
+      <noscript>
+        <div class="cherry-noscript">
+          <h2>Pay for veterinary care over time with Cherry</h2>
+          <p>This page uses Cherry's interactive payment-plan widget, which requires JavaScript. To learn more or apply, please visit <a href="https://withcherry.com/" target="_blank" rel="noopener noreferrer">withcherry.com</a> or contact our team at <a href="tel:301-366-0040">301-366-0040</a>.</p>
+        </div>
+      </noscript>
+    </div>
+  </section>
+
+  <script is:inline>
+    (function (w, d, s, o, f, js, fjs) {
+      w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments); };
+      (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
+      js.id = o;
+      js.src = f;
+      js.async = 1;
+      fjs.parentNode.insertBefore(js, fjs);
+    })(window, document, "script", "_hw", "https://files.withcherry.com/widgets/widget.js");
+
+    _hw("init", {
+      debug: false,
+      variables: {
+        slug: 'aspire-veterinary-hospital',
+        name: 'Aspire Veterinary Hospital',
+        images: [36],
+        customLogo: '',
+        defaultPurchaseAmount: 750,
+        customImage: '',
+        imageCategory: 'veterinary',
+        language: 'en',
+      },
+      styles: {
+        primaryColor: '#2e4256',
+        secondaryColor: '#2e425610',
+        fontFamily: 'Montserrat',
+        headerFontFamily: 'Montserrat',
+      }
+    }, ['hero', 'calculator', 'howitworks', 'faq']);
+  </script>
+</BaseLayout>
+
+<style>
+  .cherry-nav {
+    background: var(--aspire-navy);
+    padding: calc(var(--header-h) + 14px) 0 14px;
+  }
+  .cherry-nav__inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .cherry-nav__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .cherry-nav__back:hover { color: var(--aspire-cream); }
+  .cherry-nav__back > span:first-child {
+    font-size: 16px;
+    line-height: 1;
+    transition: transform 0.2s;
+  }
+  .cherry-nav__back:hover > span:first-child { transform: translateX(-3px); }
+  .cherry-nav__title {
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.95);
+    letter-spacing: 0.5px;
+  }
+
+  .cherry-section {
+    background: #FFFFFF;
+    padding: 40px 0 80px;
+    min-height: 600px;
+  }
+  .cherry-section__inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .cherry-noscript {
+    padding: 32px;
+    background: var(--aspire-section-bg);
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 40px;
+  }
+  .cherry-noscript h2 {
+    font-family: var(--font-display);
+    font-size: 26px;
+    color: var(--aspire-tan);
+    margin: 0 0 12px;
+  }
+  .cherry-noscript p {
+    color: var(--aspire-text);
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .cherry-noscript a { color: var(--aspire-tan); }
+
+  @media (max-width: 600px) {
+    .cherry-nav__title { display: none; }
+  }
+</style>

@@ -1,0 +1,86 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import PawList from '../components/PawList.astro';
+import HospitalCard from '../components/HospitalCard.astro';
+
+const tabs = [
+  { slug: 'urgent-care', label: 'Urgent Care', href: '/urgent-care-germantown-md/' },
+  { slug: 'chronic-care', label: 'Chronic Care', href: '/chronic-care-germantown-md/' },
+  { slug: 'illness-laboratory-diagnostics', label: 'Laboratory Diagnostics', href: '/illness-laboratory-diagnostics-germantown-md/' },
+  { slug: 'illness-imaging-diagnostics', label: 'Imaging Diagnostics', href: '/illness-imaging-diagnostics-germantown-md/' },
+];
+const schemaJson = `{"@context":"https://schema.org","@type":"MedicalProcedure","name":"Urgent Veterinary Care","description":"Same-day veterinary care for non-emergency illnesses — vomiting, diarrhea, ear and skin infections, eye problems, and other unexpected discomfort.","url":"https://aspirevethospital.com/urgent-care-germantown-md/","performer":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Urgent Veterinary Care in Germantown, MD | Aspire Veterinary Hospital"
+  description="Prompt urgent veterinary care for vomiting, infections, eye problems, and more — plus 24/7 emergency hospital referrals in the DC metro area."
+  canonical="https://aspirevethospital.com/urgent-care-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/10/sick-care-s1.jpg"
+  schemaJson={schemaJson}
+  currentService="illness-care"
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2025/10/sick-care-s1.jpg"
+  heroEyebrow="Illness Care"
+  heroH1="Urgent Care"
+  tabs={tabs}
+  activeSlug="urgent-care"
+  tabsLabel="Illness services"
+>
+  <p>Urgent care addresses medical problems that need prompt veterinary attention but are not immediately life-threatening. These issues shouldn\'t wait for the next routine appointment, yet don\'t rise to the level of an emergency hospital visit. Some examples could include vomiting or diarrhea, ear or skin infections, some eye conditions, or unexpected discomfort. Please call us if your pet is experiencing any of the symptoms below so we can best advise on next steps.</p>
+
+  <hr />
+
+  <h3>Emergency Care</h3>
+  <p>Seek emergency care right away if your pet\'s symptoms suggest a life-threatening condition or rapidly worsening illness. These include:</p>
+
+  <PawList
+    cols={2}
+    items={[
+      'Trouble breathing',
+      'Collapse, unresponsiveness, or inability to stand',
+      'Seizures',
+      'Significant bleeding or major trauma',
+      'Suspected toxin ingestion',
+      'Severe vomiting or diarrhea with weakness',
+      'A swollen, painful abdomen',
+      'Inability to urinate (especially male cats)',
+    ]}
+  />
+
+  <p>If you are reading this outside of our Hours of Operation and feel your dog needs emergency assistance, please reach out to one of the Emergency Hospitals listed below that we recommend:</p>
+
+  <hr />
+
+  <div class="hospital-grid">
+    <HospitalCard
+      name="Veterinary Referral Associates (VRA)"
+      addressLines={["500 Perry Parkway", "Gaithersburg, MD 20877"]}
+      addressHref="https://maps.app.goo.gl/500PerryParkwayGaithersburgMD20877"
+      phone="301-926-3300"
+      phoneDisplay="(301) 926-3300"
+      website="https://vravet.com/"
+      websiteDisplay="VRAVet.com"
+      hours="24/7"
+    />
+    <HospitalCard
+      name="Partner Veterinary Emergency & Specialty Center"
+      addressLines={["7330 Guilford Dr", "Frederick, MD 21704"]}
+      addressHref="https://maps.app.goo.gl/Q3AiJy7wDa7xrS9Y7"
+      phone="301-200-8185"
+      phoneDisplay="(301) 200-8185"
+      website="https://partnervesc.com/"
+      websiteDisplay="partnervesc.com"
+      hours="24/7"
+    />
+    <HospitalCard
+      name="Blue Pearl"
+      addressLines={["1 Taft Ct", "Rockville, MD 20850"]}
+      addressHref="https://maps.app.goo.gl/1TaftCtRockvilleMD20850"
+      phone="301-478-8935"
+      phoneDisplay="(301) 478-8935"
+      website="https://bluepearlvet.com/"
+      websiteDisplay="bluepearlvet.com"
+      hours="Mon-Wed: 24 hours, Thu-Sun: 7 am-7 pm"
+    />
+  </div>
+</ServiceLayout>

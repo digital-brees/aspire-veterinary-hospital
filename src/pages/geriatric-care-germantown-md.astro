@@ -1,0 +1,90 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import PawList from '../components/PawList.astro';
+
+const schemaJson = `{"@context":"https://schema.org","@type":"Service","name":"Geriatric Care","description":"Personalized geriatric veterinary care for senior dogs and cats — wellness planning, chronic disease management, pain management, mobility support, and palliative/end-of-life care.","url":"https://aspirevethospital.com/geriatric-care-germantown-md/","provider":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Geriatric Veterinary Care in Germantown, MD | Aspire Veterinary Hospital"
+  description="Personalized geriatric care for senior pets — wellness planning, chronic disease management, pain and mobility support, and compassionate end-of-life care."
+  canonical="https://aspirevethospital.com/geriatric-care-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/12/Geriatric-Care-s1.jpg"
+  schemaJson={schemaJson}
+  currentService="geriatric-care"
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2025/12/Geriatric-Care-s1.jpg"
+  heroH1="Geriatric Care"
+  heroLede="Personalized care to support comfort, mobility, and overall wellbeing as pets age."
+>
+  <h3>Supporting Comfort, Mobility, and Quality of Life in the Senior Years</h3>
+  <p>As pets grow older, their needs change. Geriatric care focuses on supporting your pet through these changes with considerate wellness planning, proactive monitoring, and tailored chronic care. At Aspire Veterinary Hospital, our goal is not simply to extend life, but to protect comfort, function, and enjoyment as your pet moves from adulthood into their senior years.</p>
+
+  <p>Aging is not a disease, but it often brings new challenges. With attentive care and an emphasis on communication, Aspire Veterinary Hospital aims to help your pets continue to live happy, engaged, and fulfilling lives. As needs evolve, we also help families navigate transitions to palliative or hospice care, thoughtful end-of-life planning, and euthanasia, offered in our calm clinic environment, indoors or outdoors, when the time is right.</p>
+
+  <hr />
+
+  <h3>Tailored Wellness for Older Pets</h3>
+  <p>Senior pets benefit from wellness care designed specifically for aging bodies and changing routines. These visits allow us to identify subtle changes early and adjust care before discomfort or decline becomes more pronounced.</p>
+
+  <p>Senior wellness care may include:</p>
+
+  <PawList
+    items={[
+      'More frequent examinations and check-ins',
+      'Monitoring for age-related changes in weight, appetite, and behavior',
+      'Screening for chronic conditions common in older pets',
+      'Preventive care adjusted to align with current risks',
+      'Discussion of at home and clinic based pain management strategies and fitness routines',
+    ]}
+  />
+
+  <hr />
+
+  <h3>Chronic Care & Ongoing Support</h3>
+  <p>Many senior pets live with chronic conditions such as arthritis, allergies, or organ and metabolic disorders. Chronic care focuses on long-term management, not just treating flare-ups.</p>
+
+  <p>Our approach emphasizes:</p>
+
+  <PawList
+    items={[
+      'Individualized treatment plans that evolve as your pet\'s needs change',
+      'Regular reassessment to balance benefit, comfort, and practicality',
+      'Monitoring lab results for trends and changes over time',
+      'Treatment adjustments based on how your pet is feeling and functioning',
+    ]}
+  />
+
+  <hr />
+
+  <h3>Pain Management & Mobility</h3>
+  <p>Reduced mobility and chronic pain are among the most common issues in aging pets. Changes may be subtle: hesitation on stairs, slower movement, changes in posture, or reduced interest in activities they once loved.</p>
+
+  <p>We focus on:</p>
+
+  <PawList
+    items={[
+      'Identifying signs of chronic pain early',
+      'Multimodal pain management strategies tailored to the individual, such as sedated procedures like joint injections, which avoids the use of general anesthesia and is usually a safer option for older patients.',
+      'Supporting joint health, strength, and mobility',
+      'Improving ease of movement and confidence through fitness, aquatherapy, and acupuncture',
+    ]}
+  />
+
+  <hr />
+
+  <h3>Appetite, Engagement, and Emotional Well-Being</h3>
+  <p>Quality of life is about more than medical numbers. Appetite, energy, curiosity, and enjoyment are often the clearest indicators of how a senior pet is truly doing.</p>
+
+  <p>Have you noticed these changes in your pet?</p>
+
+  <PawList
+    items={[
+      'Changes in appetite, eating habits, and weight',
+      'Energy levels and daily engagement',
+      'Behavior changes that may signal discomfort or confusion',
+      'Changes in emotional well-being and connection with family',
+    ]}
+  />
+
+  <p>By paying attention to these details, you can help us better align with the care your pet needs.</p>
+</ServiceLayout>

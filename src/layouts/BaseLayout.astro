@@ -1,0 +1,99 @@
+---
+// BaseLayout.astro - shared head + body wrapper for every page.
+import AspireHeader from '../components/AspireHeader.astro';
+import AspireFooter from '../components/AspireFooter.astro';
+import '../styles/tokens.css';
+
+export interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage?: string;
+  ogType?: string;
+  schemaJson?: string;
+  currentService?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage = 'https://aspirevethospital.com/wp-content/uploads/2025/07/AVH-logo-mob.png',
+  ogType = 'article',
+  schemaJson,
+  currentService,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" type="image/png" href="https://aspirevethospital.com/wp-content/uploads/2025/07/AVH-fav-icon.png" />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:site_name" content="Aspire Veterinary Hospital" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  {schemaJson && <script type="application/ld+json" set:html={schemaJson} />}
+
+  {/* Cherry floating estimator - loads site-wide. The full widget on
+      /cherry-payment-plans/ initializes its own sections separately. */}
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@200..900&family=Slabo+27px:wght@200..900&family=Lato:wght@200..900&family=Raleway:wght@200..900&family=Montserrat:wght@200..900&family=Oswald:wght@200..900&family=Poppins:wght@200..900&family=Source+Sans+Pro:wght@200..900&family=PT+Sans:wght@200..900&family=Open+Sans:wght@200..900&display=swap" rel="stylesheet" />
+  <script is:inline>
+    (function (w, d, s, o, f, js, fjs) {
+      w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments); };
+      (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);
+      js.id = o;
+      js.src = f;
+      js.async = 1;
+      fjs.parentNode.insertBefore(js, fjs);
+    })(window, document, "script", "_hw", "https://files.withcherry.com/widgets/widget.js");
+
+    _hw("init", {
+      debug: false,
+      variables: {
+        slug: 'aspire-veterinary-hospital',
+        name: 'Aspire Veterinary Hospital',
+        images: [6],
+        customLogo: '',
+        defaultPurchaseAmount: 1000,
+        customImage: '',
+        imageCategory: 'other',
+        language: 'en',
+      },
+      styles: {
+        primaryColor: '#0E202F',
+        secondaryColor: '#0E202F10',
+        fontFamily: 'Open Sans',
+        headerFontFamily: 'Open Sans',
+        floatingEstimator: {
+          position: 'bottom-right',
+          offset: { x: '0px', y: '0px' },
+          zIndex: 9999,
+          ctaFontFamily: 'Open Sans',
+          bodyFontFamily: 'Open Sans',
+          ctaColor: '#0E202F',
+          ctaTextColor: '#FFFFFF'
+        }
+      }
+    }, ['floatingEstimator']);
+  </script>
+</head>
+<body class="aspire-site">
+  <AspireHeader currentService={currentService} />
+  <slot />
+  <AspireFooter />
+
+  {/* Cherry floating estimator mount point - the widget injects content here */}
+  <div id="floatingEstimator"></div>
+</body>
+</html>

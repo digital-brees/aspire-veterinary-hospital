@@ -1,0 +1,56 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+
+const tabs = [
+  { slug: 'urgent-care', label: 'Urgent Care', href: '/urgent-care-germantown-md/' },
+  { slug: 'chronic-care', label: 'Chronic Care', href: '/chronic-care-germantown-md/' },
+  { slug: 'illness-laboratory-diagnostics', label: 'Laboratory Diagnostics', href: '/illness-laboratory-diagnostics-germantown-md/' },
+  { slug: 'illness-imaging-diagnostics', label: 'Imaging Diagnostics', href: '/illness-imaging-diagnostics-germantown-md/' },
+];
+const schemaJson = `{"@context":"https://schema.org","@type":"MedicalProcedure","name":"Illness Laboratory Diagnostics","description":"In-house diagnostic testing for sick pets including CBC, extended chemistry panels, urinalysis, fecal exams, bacterial cultures, microscope work, and rapid screens for Parvovirus, Pancreatitis, Leptospirosis, Lyme Disease, and Feline Leukemia.","url":"https://aspirevethospital.com/illness-laboratory-diagnostics-germantown-md/","performer":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Illness Lab Diagnostics for Pets in Germantown, MD | Aspire Veterinary Hospital"
+  description="In-house illness diagnostics — CBC, chemistry panels, urine, fecal, microscope work, and rapid screens — for prompt answers and treatment."
+  canonical="https://aspirevethospital.com/illness-laboratory-diagnostics-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/10/sick-care-s1.jpg"
+  schemaJson={schemaJson}
+  currentService="illness-care"
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2025/10/sick-care-s1.jpg"
+  heroEyebrow="Illness Care"
+  heroH1="Laboratory Diagnostics"
+  tabs={tabs}
+  activeSlug="illness-laboratory-diagnostics"
+  tabsLabel="Illness services"
+>
+  <p>When your pet is sick, timely and accurate testing is essential. In many cases, we begin with in-house analyses to provide immediate answers and start treatment right away, while also sending samples to trusted reference laboratories to confirm the full scope of illness. This approach allows us to act quickly while ensuring nothing is overlooked in your pet\'s diagnosis and care.</p>
+
+  <hr />
+
+  <h3>CBC Analysis <img src="https://aspirevethospital.com/wp-content/uploads/2025/12/test-tube-red.png" alt="Blood sample" style="width:20px;height:auto;vertical-align:middle;display:inline-block;" /></h3>
+  <p>A Complete Blood Count (CBC) helps us evaluate for infections, inflammation, anemia, clotting disorders, and immune-related concerns. This test is often one of the first steps in narrowing down what\'s wrong and guiding next steps in treatment.</p>
+
+  <hr />
+
+  <h3>Chemistry Analysis <img src="https://aspirevethospital.com/wp-content/uploads/2025/12/test-tube-red.png" alt="Blood sample" style="width:20px;height:auto;vertical-align:middle;display:inline-block;" /></h3>
+  <p>For illness, we often run more extensive chemistry panels than those used in wellness visits—looking at the details of each body system rather than just broad summaries. These results can highlight imbalances linked to kidney disease, liver dysfunction, pancreatitis, and many other conditions, giving us a clear picture of how illness is affecting your pet.</p>
+
+  <hr />
+
+  <h3>Urine and Fecal Analysis <img src="https://aspirevethospital.com/wp-content/uploads/2025/12/test-tube-yellow.png" alt="Urine sample" style="width:20px;height:auto;vertical-align:middle;display:inline-block;" /><img src="https://aspirevethospital.com/wp-content/uploads/2025/12/test-tube-dark.png" alt="Fecal sample" style="width:20px;height:auto;vertical-align:middle;display:inline-block;margin-left:4px;" /></h3>
+  <p>Urine and fecal (poop) testing give us insight into issues affecting the urinary tract and digestive system. These tests can detect infections, organ dysfunction, parasites, or metabolic disease, helping us clarify the cause of your pet\'s symptoms.</p>
+
+  <hr />
+
+  <h3>In-House Cultures & Microscope Testing <img src="https://aspirevethospital.com/wp-content/uploads/2025/12/test-tube-green.png" alt="Culture sample" style="width:20px;height:auto;vertical-align:middle;display:inline-block;" /></h3>
+  <p>Our digital microscope and in-house bacterial cultures are used to more clearly identify skin, ear, and lump issues. This digital imaging allows us to share these images with both you and other diagnostics professionals to come to a determination of what may be ailing your pet and how best to treat it.</p>
+
+  <hr />
+
+  <h3>Screenings for Common Illnesses <img src="https://aspirevethospital.com/wp-content/uploads/2025/12/test-tube-red.png" alt="Blood sample" style="width:20px;height:auto;vertical-align:middle;display:inline-block;" /><img src="https://aspirevethospital.com/wp-content/uploads/2025/12/test-tube-dark.png" alt="Fecal sample" style="width:20px;height:auto;vertical-align:middle;display:inline-block;margin-left:4px;" /></h3>
+  <p>Some illnesses are so common that rapid tests have been developed to confirm them quickly. We carry these tests in-house for situations where there is strong suspicion of Parvovirus, Pancreatitis, Leptospirosis, Lyme Disease, Feline Leukemia. These screenings give fast results so the right treatment plan can begin without delay.</p>
+
+  <p>For routine monitoring and preventive care, explore our <a href="/wellness-laboratory-diagnostics-germantown-md/">Wellness Diagnostics</a> page to see how we keep your pet healthy year after year.</p>
+</ServiceLayout>

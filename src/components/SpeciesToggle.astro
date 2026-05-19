@@ -1,0 +1,90 @@
+---
+// SpeciesToggle.astro — Dog/Cat (or any 2-pane) toggle with sticky nav,
+// matches live Shortcodes Ultimate su-tabs styling.
+// Slot named per pane: <Fragment slot="pane-1"> / <Fragment slot="pane-2">.
+export interface Props {
+  label1: string;
+  label2: string;
+  pane1Id?: string;
+  pane2Id?: string;
+}
+const { label1, label2, pane1Id = 'pane-1', pane2Id = 'pane-2' } = Astro.props;
+---
+
+<div class="species-toggle">
+  <div class="species-toggle__nav" role="tablist">
+    <button class="species-toggle__btn is-current" type="button" role="tab" aria-selected="true" data-target={pane1Id}>{label1}</button>
+    <button class="species-toggle__btn" type="button" role="tab" aria-selected="false" data-target={pane2Id}>{label2}</button>
+  </div>
+
+  <div class="species-toggle__pane is-open" id={pane1Id} role="tabpanel">
+    <slot name="pane-1" />
+  </div>
+  <div class="species-toggle__pane" id={pane2Id} role="tabpanel">
+    <slot name="pane-2" />
+  </div>
+</div>
+
+<style>
+  .species-toggle { margin: 32px 0; }
+  .species-toggle__nav {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 155px;
+    z-index: 35;
+    background: var(--aspire-section-bg);
+    padding: 16px 0 4px;
+  }
+  .species-toggle__btn {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    min-width: 220px;
+    padding: 15px 20px;
+    text-align: center;
+    background: rgb(231, 226, 216);
+    color: rgb(51, 51, 51);
+    border: 1px solid transparent;
+    border-bottom: 5px solid rgb(231, 226, 216);
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  }
+  .species-toggle__btn:hover:not(.is-current) { background: #fff; }
+  .species-toggle__btn.is-current {
+    background: #fff;
+    border: 1px solid var(--aspire-tan);
+    border-bottom: 5px solid var(--aspire-tan);
+    color: rgb(51, 51, 51);
+  }
+  .species-toggle__pane { display: none; }
+  .species-toggle__pane.is-open { display: block; }
+  @media (max-width: 900px) { .species-toggle__nav { top: 125px; } }
+  @media (max-width: 600px) {
+    .species-toggle__btn { min-width: 50%; flex: 1 1 50%; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.species-toggle').forEach(toggle => {
+    const btns = toggle.querySelectorAll('.species-toggle__btn');
+    const panes = toggle.querySelectorAll('.species-toggle__pane');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.getAttribute('data-target');
+        btns.forEach(b => {
+          const isCurrent = b === btn;
+          b.classList.toggle('is-current', isCurrent);
+          b.setAttribute('aria-selected', isCurrent ? 'true' : 'false');
+        });
+        panes.forEach(p => {
+          p.classList.toggle('is-open', p.id === target);
+        });
+      });
+    });
+  });
+</script>

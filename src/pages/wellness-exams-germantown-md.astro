@@ -1,0 +1,87 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import PawList from '../components/PawList.astro';
+import SplitSection from '../components/SplitSection.astro';
+
+const tabs = [
+  { slug: 'examinations', label: 'Examinations', href: '/wellness-exams-germantown-md/' },
+  { slug: 'vaccinations', label: 'Vaccinations', href: '/vaccinations-germantown-md/' },
+  { slug: 'preventative-medications', label: 'Preventative Medications', href: '/preventative-care-germantown-md/' },
+  { slug: 'wellness-laboratory-diagnostics', label: 'Laboratory Diagnostics', href: '/wellness-laboratory-diagnostics-germantown-md/' },
+  { slug: 'wellness-imaging-diagnostics', label: 'Imaging Diagnostics', href: '/wellness-imaging-diagnostics-germantown-md/' },
+  { slug: 'dental-cleaning', label: 'Routine Dental Cleaning', href: '/dog-dental-care-germantown-md/' },
+];
+
+const schemaJson = `{
+  "@context": "https://schema.org",
+  "@type": "MedicalProcedure",
+  "name": "Pet Wellness Examination",
+  "description": "A thorough physical examination paired with a mobility and functional assessment to evaluate your pet's overall health, detect issues early, and inform individualized treatment recommendations.",
+  "url": "https://aspirevethospital.com/wellness-exams-germantown-md/",
+  "performer": {
+    "@type": "VeterinaryCare",
+    "name": "Aspire Veterinary Hospital",
+    "url": "https://aspirevethospital.com/",
+    "telephone": "+1-301-366-0040",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "14112 Darnestown Road",
+      "addressLocality": "Germantown",
+      "addressRegion": "MD",
+      "postalCode": "20874",
+      "addressCountry": "US"
+    }
+  }
+}`;
+---
+
+<ServiceLayout
+  title="Pet Wellness Exams in Germantown, MD | Aspire Veterinary Hospital"
+  description="Thorough pet wellness exams paired with mobility and functional assessments. Aspire Veterinary Hospital serves Germantown, Darnestown, and Potomac, MD."
+  canonical="https://aspirevethospital.com/wellness-exams-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/10/wellness-care-2_s1.jpg"
+  schemaJson={schemaJson}
+  currentService="wellness-care"
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2025/10/wellness-care-2_s1.jpg"
+  heroEyebrow="Wellness Care"
+  heroH1="Examinations"
+  tabs={tabs}
+  activeSlug="examinations"
+  tabsLabel="Wellness services"
+>
+  <p>We have elevated the standard physical examination by pairing it with a mobility and functional assessment when needed. Doing so allows us to obtain a whole picture of your pet's health. Read more below about the components of our wellness exams and how it can help you make the best decisions for their ongoing wellness journey!</p>
+
+  <hr />
+
+  <h3>Physical Examination</h3>
+  <p>A thorough physical examination is meant to evaluate the current state of your pet's health, inform on treatment recommendations, and potentially allow your veterinarian to detect issues earlier. A physical exam includes the following:</p>
+
+  <PawList
+    cols={2}
+    items={[
+      'Vital Signs',
+      'Body Condition & Weight',
+      'Stance, Gait, & Maneuverability',
+      'Listen to Heart & Lungs',
+      'Nose to Tail Evaluation including eyes, ears, teeth, skin, lymph nodes, and more',
+      'Pain Assessment',
+    ]}
+  />
+
+  <hr />
+
+  <h3>Mobility & Function Evaluation</h3>
+  <p>Joint and neurological problems don't always result in an obvious limp. Sometimes all that is noticeable at first is a change in how a pet jumps on furniture or stands up after laying down for a while. We may use functional assessments like step-ups and figure-8s in the exam room, or we may use other equipment in our conditioning area to help localize the problem in addition to diagnostic imaging like X-rays and ultrasound to diagnose and monitor causes of pain or changes in movement.</p>
+
+  <hr />
+
+  <SplitSection
+    image="https://aspirevethospital.com/wp-content/uploads/2025/10/wellness-care-s3.jpg"
+    imageAlt="Veterinary professional examining a pet"
+  >
+    <h2>What to expect during a Wellness Examination</h2>
+    <p>We believe that standard of care doesn't mean standard care. Each pet is different, as are the needs of each of our clients. We are deeply committed to education and communication to ensure you are making informed decisions that you are truly comfortable with when it comes to your pet's care.</p>
+    <p>In addition to overall health, wellness is about day-to-day life, so expect us to ask deeper questions, like "what do you want to accomplish with your pet?" If the answer is veg out on the couch, we can recommend healthy movie snacks! If the answer is hiking the tallest mountain, we'll talk about conditioning exercises designed to help your pet achieve those goals.</p>
+    <p>The foundation of what wellness means to you and your pet starts with a conversation in the exam room. If you are ready to learn more about other topics we'll discuss during a wellness exam, check out the tabs above to explore all of the facets that create a total wellness profile.</p>
+  </SplitSection>
+</ServiceLayout>

@@ -1,0 +1,44 @@
+---
+// PawList.astro — bulleted list with paw icon bullets. Pass `cols={2}` for two-column layout.
+export interface Props {
+  items: string[];
+  cols?: 1 | 2;
+}
+const { items, cols = 1 } = Astro.props;
+const cls = cols === 2 ? 'paw-list paw-list--2col' : 'paw-list';
+---
+
+<ul class={cls}>
+  {items.map(item => <li set:html={item} />)}
+</ul>
+
+<style>
+  .paw-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+  }
+  .paw-list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--aspire-text);
+  }
+  .paw-list li::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 6px;
+    width: 18px; height: 18px;
+    background: url('https://aspirevethospital.com/wp-content/uploads/2025/10/paw-icon.png') no-repeat center / contain;
+  }
+  .paw-list--2col {
+    column-count: 2;
+    column-gap: 40px;
+  }
+  .paw-list--2col li { break-inside: avoid; }
+  @media (max-width: 720px) {
+    .paw-list--2col { column-count: 1; }
+  }
+</style>

@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const photo = 'https://aspirevethospital.com/wp-content/uploads/2025/11/mtd-Matheny.jpg';
+
+const schemaJson = `{"@context":"https://schema.org","@type":"Person","name":"Anna Matheny","jobTitle":"DVM, cVMA, CCRP, cWDP","image":"${photo}","url":"https://aspirevethospital.com/our-team/anna-matheny-dvm-cvma-ccrp-cwdp/","worksFor":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/"}}`;
+---
+
+<BaseLayout
+  title="Dr. Anna Matheny, DVM, cVMA, CCRP, cWDP | Aspire Veterinary Hospital"
+  description="Meet Dr. Anna Matheny — veterinary acupuncture, rehabilitation, and working dog practitioner certifications. Aspire Veterinary Hospital, Germantown, MD."
+  canonical="https://aspirevethospital.com/our-team/anna-matheny-dvm-cvma-ccrp-cwdp/"
+  ogImage={photo}
+  ogType="profile"
+  schemaJson={schemaJson}
+>
+  <!-- Slim breadcrumb -->
+  <nav class="bio-nav" aria-label="Breadcrumb">
+    <div class="bio-nav__inner">
+      <a class="bio-nav__back" href="/our-team/">
+        <span aria-hidden="true">←</span>
+        <span>Our Team</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- HEADER BAND: photo on the left, name + credentials on the right -->
+  <section class="bio-header">
+    <div class="bio-header__inner">
+      <div class="bio-header__photo-wrap">
+        <img class="bio-header__photo" src={photo} alt="Dr. Anna Matheny with a Bernese Mountain Dog" loading="eager" />
+        <a class="bio-header__badge" href="https://www.fearfree.com/about-fearfree/" target="_blank" rel="noopener noreferrer" aria-label="Fear Free Certified">
+          <img src="https://aspirevethospital.com/wp-content/uploads/2026/02/FF-Certified.png" alt="Fear Free Certified" loading="lazy" />
+        </a>
+      </div>
+
+      <div class="bio-header__id">
+        <h1 class="bio-header__name">Dr. Anna Matheny</h1>
+        <p class="bio-header__creds">DVM, cVMA, CCRP, cWDP</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIO: single centered column for comfortable reading -->
+  <section class="bio-body-section">
+    <article class="bio-body">
+      <p>Dr. Anna Matheny grew up in Rockville, Maryland. She earned her undergraduate degrees in Toxicology and Global Health from Penn State University, where her passion for animal care was shaped not only by science, but also by hands-on experience. During college, Dr. Matheny worked for a nationally recognized horse trainer specializing in gentling wild mustangs, and she spent several years training horses professionally before pursuing veterinary medicine.</p>
+
+      <p>Dr. Matheny earned her Doctor of Veterinary Medicine degree from the Virginia-Maryland College of Veterinary Medicine at Virginia Tech. Following graduation, she accepted a junior associate position at Virginia Equine Imaging in Middleburg, Virginia, where she focused on equine sports medicine and developed a strong foundation in performance medicine, biomechanics, and collaborative care. When her husband's career brought them back to the DC area, Dr. Matheny transitioned her expertise into small animal medicine, carrying the same thoughtful, performance-oriented approach into companion animal care.</p>
+
+      <p>Driven by a commitment to comfort, mobility, and quality of life, Dr. Matheny pursued advanced training in integrative and rehabilitative medicine. She completed her veterinary acupuncture certification (cVMA) through CuraCore under the mentorship of Dr. Narda Robinson, and earned her rehab certification (CCRP) designation through the University of Tennessee. A lifelong learner, she continues to seek out continuing education opportunities to better serve her patients and their families. She has completed her working dog practitioner certification (cWDP) through the University of Pennsylvania, which makes her one of only a dozen veterinarians who have gained this credential in the country, and one of only two veterinarians to receive this certification in Maryland.</p>
+
+      <p>Dr. Matheny lives in Montgomery County with her husband, their son, their Newfoundland Lily, and mustang Zephyr, reflecting her lifelong love for horse-sized dogs and dog-sized horses. Outside of work, she enjoys spending time with family, hiking, being out in nature, teaching her son to ride, and spending time on the water.</p>
+
+      <p>Dr. Matheny views anyone within traveling distance as part of her community and is deeply committed to ensuring that companion pets and working canines throughout Maryland and the DMV receive high-quality, thoughtful, approachable care. She is excited to offer her expertise to support pets and K9 teams at every life stage and to build lasting partnerships with the families who entrust her with their care.</p>
+    </article>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ============ Slim breadcrumb (navy band — also serves as the backdrop for the
+     fixed AspireHeader, whose nav text is light-on-dark) ============ */
+  .bio-nav {
+    background: var(--aspire-navy);
+    padding: calc(var(--header-h) + 14px) 0 14px;
+  }
+  .bio-nav__inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .bio-nav__back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .bio-nav__back:hover { color: var(--aspire-cream); }
+  .bio-nav__back > span:first-child {
+    font-size: 16px;
+    line-height: 1;
+    transition: transform 0.2s;
+  }
+  .bio-nav__back:hover > span:first-child { transform: translateX(-3px); }
+
+  /* ============ Header band: photo + name side-by-side ============ */
+  .bio-header {
+    background: #FFFFFF;
+    padding: 56px 0 64px;
+  }
+  /* Match the bio body's max-width so the photo's left edge lines up with
+     the first paragraph's left edge below. */
+  .bio-header__inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .bio-header__photo-wrap {
+    position: relative;
+    aspect-ratio: 4 / 5;
+  }
+  .bio-header__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 200px;
+    border: 5px solid var(--aspire-navy);
+    display: block;
+  }
+  .bio-header__badge {
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    width: 72px;
+    height: 72px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(47, 65, 87, 0.18);
+    transition: transform 0.2s;
+  }
+  .bio-header__badge:hover { transform: scale(1.05); }
+  .bio-header__badge img { width: 100%; height: 100%; object-fit: contain; }
+
+  .bio-header__id {}
+  .bio-header__name {
+    font-family: var(--font-display);
+    font-size: 42px;
+    font-weight: 500;
+    color: var(--aspire-text-dark);
+    margin: 0 0 6px;
+    line-height: 1.1;
+    letter-spacing: -0.3px;
+  }
+  .bio-header__creds {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--aspire-tan);
+    margin: 0;
+    letter-spacing: 0.3px;
+  }
+
+  /* ============ Bio body: single centered reading column ============ */
+  .bio-body-section {
+    background: var(--aspire-section-bg);
+    padding: 60px 0 80px;
+  }
+  .bio-body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .bio-body p {
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--aspire-text);
+    margin: 0 0 20px;
+  }
+  .bio-body p:last-child { margin-bottom: 0; }
+
+  /* ============ Responsive ============ */
+  @media (max-width: 900px) {
+    /* Header is much shorter on mobile (no full nav). Override the
+       calc(var(--header-h) + 14px) padding so the breadcrumb doesn't sit
+       under a giant invisible band. */
+    .bio-nav { padding: 90px 0 14px; }
+  }
+  @media (max-width: 860px) {
+    .bio-header__inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+      text-align: center;
+    }
+    .bio-header__photo-wrap {
+      max-width: 280px;
+      margin: 0 auto;
+    }
+    .bio-header__name { font-size: 38px; }
+    .bio-header__creds { font-size: 19px; }
+  }
+  @media (max-width: 480px) {
+    .bio-header { padding: 40px 0 48px; }
+    .bio-header__name { font-size: 30px; }
+    .bio-header__creds { font-size: 16px; }
+    .bio-body p { font-size: 16px; }
+  }
+</style>

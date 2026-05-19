@@ -1,0 +1,23 @@
+---
+// Aspire Veterinary Hospital — homepage
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AspireHero from '../components/AspireHero.astro';
+import AspireMindset from '../components/AspireMindset.astro';
+import AspireDoctorSpotlight from '../components/AspireDoctorSpotlight.astro';
+import AspireCareers from '../components/AspireCareers.astro';
+import AspireServiceArea from '../components/AspireServiceArea.astro';
+---
+
+<BaseLayout
+  title="Veterinarian in greater DC metro area | Aspire Veterinary Hospital"
+  description="Aspire Veterinary Hospital provides veterinary care focused on wellness, rehabilitation, and long-term quality of life for pets and working dogs in greater Washington DC metro area."
+  canonical="https://aspirevethospital.com/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/07/AVH-logo-mob.png"
+  ogType="website"
+>
+  <AspireHero />
+  <AspireMindset />
+  <AspireDoctorSpotlight />
+  <AspireCareers />
+  <AspireServiceArea />
+</BaseLayout>

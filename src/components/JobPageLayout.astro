@@ -1,0 +1,302 @@
+---
+// JobPageLayout.astro — shared shell for individual job description pages.
+// Renders: ServiceHero with job-specific image + H1, then 2-column body
+// (main content slot + sticky sidebar with quick facts and Apply Now).
+import ServiceHero from './ServiceHero.astro';
+
+export interface Props {
+  jobTitle: string;
+  heroImage: string;            // job-specific banner image
+  location?: string;            // e.g. "Darnestown, MD"
+  jobType?: string;             // e.g. "Full-Time"
+  compensation?: string;        // e.g. "$22–$24/hour"
+  contactEmail?: string;        // e.g. "operations@aspirevethospital.com"
+  postedDate?: string;          // e.g. "August 24, 2025"
+  applyHref?: string;           // defaults to live careers form
+}
+const {
+  jobTitle,
+  heroImage,
+  location = 'Darnestown, MD',
+  jobType = 'Full-Time',
+  compensation,
+  contactEmail = 'operations@aspirevethospital.com',
+  postedDate,
+  applyHref = '/careers-form/',
+} = Astro.props;
+---
+
+<ServiceHero
+  bgImage={heroImage}
+  eyebrow="Aspire Veterinary Hospital"
+  h1={jobTitle}
+  lede={`${location} • ${jobType}`}
+/>
+
+<section class="job-body">
+  <div class="job-body__inner">
+    <article class="job-body__main">
+      <slot />
+    </article>
+
+    <aside class="job-body__sidebar">
+      <div class="job-card">
+        <p class="job-card__location-label">
+          <svg class="job-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          {location}
+        </p>
+
+        <p class="job-card__instructions">Please fill out our careers form to apply for this position.</p>
+
+        {compensation && (
+          <div class="job-card__fact">
+            <span class="job-card__value">{compensation}</span>
+            <span class="job-card__label">Compensation Range</span>
+          </div>
+        )}
+
+        {contactEmail && (
+          <div class="job-card__fact">
+            <a class="job-card__email" href={`mailto:${contactEmail}`}>
+              <svg class="job-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3,7 12,13 21,7"/></svg>
+              Email Us
+            </a>
+            <span class="job-card__label">Contact Email</span>
+          </div>
+        )}
+
+        <div class="job-card__fact">
+          <span class="job-card__value">
+            <svg class="job-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+            <strong>{jobType}</strong>
+          </span>
+          <span class="job-card__label">Job Type</span>
+        </div>
+
+        {postedDate && (
+          <div class="job-card__fact">
+            <span class="job-card__value">
+              <svg class="job-card__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <strong>{postedDate}</strong>
+            </span>
+            <span class="job-card__label">Posted Date</span>
+          </div>
+        )}
+
+        <a class="job-card__btn" href={applyHref}>Apply Now</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<style>
+  /* Body: 2-column layout. Main content + sticky sidebar. */
+  .job-body {
+    background: var(--aspire-section-bg);
+    padding: 60px 0 100px;
+  }
+  .job-body__inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 60px;
+    align-items: start;
+  }
+
+  /* Main job content — typography matches .content (h2 tan, h3 dark, etc.).
+     No white container — text flows directly on the section's gray background. */
+  .job-body__main {
+    background: transparent;
+    padding: 0;
+  }
+  .job-body__main :global(h2) {
+    font-family: var(--font-display);
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--aspire-tan);
+    margin: 32px 0 14px;
+    line-height: 1.25;
+  }
+  .job-body__main :global(h2:first-child) { margin-top: 0; }
+  .job-body__main :global(h3) {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--aspire-text-dark);
+    margin: 32px 0 14px;
+    line-height: 1.3;
+  }
+  .job-body__main :global(h3:first-child) { margin-top: 0; }
+  .job-body__main :global(h4) {
+    font-family: var(--font-display);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--aspire-navy);
+    margin: 24px 0 8px;
+  }
+  .job-body__main :global(p) {
+    font-size: 17px;
+    line-height: 1.75;
+    margin: 0 0 16px;
+    color: var(--aspire-text);
+  }
+  .job-body__main :global(p strong),
+  .job-body__main :global(li strong) {
+    color: var(--aspire-text-dark);
+    font-weight: 600;
+  }
+  .job-body__main :global(ul) {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+  }
+  .job-body__main :global(li) {
+    position: relative;
+    padding: 4px 0 4px 28px;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--aspire-text);
+  }
+  .job-body__main :global(li::before) {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 14px;
+    height: 14px;
+    background-image: url('https://aspirevethospital.com/wp-content/uploads/2025/10/paw-icon.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .job-body__main :global(hr) {
+    border: 0;
+    height: 1px;
+    background: #ECE6DF;
+    margin: 32px 0;
+  }
+  .job-body__main :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .job-body__main :global(th),
+  .job-body__main :global(td) {
+    border: 1px solid #ECE6DF;
+    padding: 10px 14px;
+    text-align: left;
+    color: var(--aspire-text);
+  }
+  .job-body__main :global(th) {
+    background: var(--aspire-bg-soft);
+    color: var(--aspire-text-dark);
+    font-weight: 600;
+  }
+
+  /* Sticky sidebar — matches the scrolled-state height of AspireHeader (~94px)
+     so the sidebar tucks just under the collapsed nav with no gap. */
+  .job-body__sidebar {
+    position: sticky;
+    top: 96px;
+  }
+  .job-card {
+    background: #FFFFFF;
+    border: 1px solid #ECE6DF;
+    border-radius: 10px;
+    padding: 28px 26px;
+    box-shadow: 0 4px 20px rgba(47, 65, 87, 0.06);
+  }
+  .job-card__location-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--aspire-text-dark);
+    margin: 0 0 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ECE6DF;
+  }
+  .job-card__instructions {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--aspire-text);
+    margin: 0 0 20px;
+    font-style: italic;
+  }
+  .job-card__fact {
+    margin: 0 0 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #ECE6DF;
+  }
+  .job-card__fact:last-of-type {
+    border-bottom: 0;
+    padding-bottom: 4px;
+  }
+  .job-card__value {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-size: 17px;
+    color: var(--aspire-text-dark);
+    margin-bottom: 2px;
+  }
+  .job-card__value strong { font-weight: 600; }
+  .job-card__email {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--aspire-tan);
+    text-decoration: underline;
+    font-size: 16px;
+    margin-bottom: 2px;
+  }
+  .job-card__email:hover { color: var(--aspire-navy); }
+  .job-card__label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--aspire-text);
+    padding-left: 26px;
+  }
+  .job-card__icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--aspire-tan);
+  }
+  .job-card__btn {
+    display: block;
+    text-align: center;
+    margin-top: 8px;
+    background: var(--aspire-navy);
+    color: var(--aspire-cream);
+    border: 1px solid var(--aspire-cream);
+    border-radius: 5px;
+    padding: 14px 22px;
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: background 0.25s, color 0.25s;
+  }
+  .job-card__btn:hover {
+    background: var(--aspire-cream);
+    color: var(--aspire-navy);
+  }
+
+  @media (max-width: 960px) {
+    .job-body__inner {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .job-body__sidebar { position: static; }
+  }
+</style>

@@ -1,0 +1,68 @@
+---
+// AspireCareers.astro — full-bleed dark CTA block with monogram + texture bg
+export interface Props {
+  monogramImg?: string;
+  bgTexture?: string;
+  heading?: string;
+  body?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+}
+
+const {
+  monogramImg = 'https://aspirevethospital.com/wp-content/uploads/2025/10/logo_icon1.png',
+  bgTexture = 'https://aspirevethospital.com/wp-content/uploads/2025/08/swirl-bg.jpg',
+  heading = 'Careers at Aspire',
+  body = "We know that in order to deliver exceptional veterinary care we have to have an exceptional place to work. So we've built a team culture rooted in compassion, collaboration, and professional growth, where every member is valued for their unique contributions. Whether you're just beginning your career or bringing years of experience, you'll find opportunities to learn, lead, and make a meaningful impact. When our team thrives, so do the patients and people we serve and we believe that investing in both is what sets Aspire apart.",
+  ctaLabel = 'View Available Opportunities',
+  ctaHref = '/careers-germantown-md/#open_positions',
+} = Astro.props;
+---
+
+<section class="aspire-careers" style={`background-image: url('${bgTexture}');`}>
+  <div class="aspire-careers__inner">
+    <img class="aspire-careers__monogram-img" src={monogramImg} alt="" />
+    <h2 class="aspire-careers__heading">{heading}</h2>
+    <p class="aspire-careers__body">{body}</p>
+    <a class="aspire-btn" href={ctaHref}>{ctaLabel}</a>
+  </div>
+</section>
+
+<style>
+  .aspire-careers {
+    background-color: var(--aspire-navy);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding: 120px 0;
+    text-align: center;
+  }
+  .aspire-careers__inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .aspire-careers__monogram-img {
+    width: 90px;
+    height: auto;
+    margin: 0 auto 28px;
+    display: block;
+  }
+  .aspire-careers__heading {
+    font-family: var(--font-display);
+    font-size: 42px; font-weight: 500;
+    color: #fff;
+    margin: 0 0 28px;
+  }
+  .aspire-careers__body {
+    color: var(--aspire-cream);
+    font-size: 16px; line-height: 1.8;
+    margin: 0 0 40px;
+    opacity: 0.92;
+  }
+  @media (max-width: 900px) {
+    .aspire-careers { padding: 80px 0; }
+    .aspire-careers__heading { font-size: 30px; }
+  }
+</style>

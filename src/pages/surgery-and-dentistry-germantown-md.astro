@@ -1,0 +1,88 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import PawList from '../components/PawList.astro';
+import SplitSection from '../components/SplitSection.astro';
+
+const schemaJson = `{"@context":"https://schema.org","@type":"Service","name":"Surgery & Dentistry","description":"Scheduled surgical and dental procedures for pets including spays, neuters, soft tissue surgery, orthopedic surgery (TPLOs), oral surgery, tooth extractions, professional dental cleanings (COHAT), and treatment of periodontal disease.","url":"https://aspirevethospital.com/surgery-and-dentistry-germantown-md/","provider":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Veterinary Surgery & Dentistry in Germantown, MD | Aspire Veterinary Hospital"
+  description="Scheduled surgical and dental procedures for pets — spays, neuters, soft tissue, orthopedic surgery (TPLOs), and professional dental cleanings under anesthesia."
+  canonical="https://aspirevethospital.com/surgery-and-dentistry-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/12/surgery-dentistry-s1.jpg"
+  schemaJson={schemaJson}
+  currentService="surgery-and-dentistry"
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2025/12/surgery-dentistry-s1.jpg"
+  heroH1="Surgery & Dentistry"
+  heroLede="From routine to advanced, procedures are performed with intention, safety, and follow-through."
+>
+  <h3>Preparation & Recovery</h3>
+  <p>Every surgical and dental procedure begins long before anesthesia and continues well after your pet goes home. At Aspire Veterinary Hospital, preparation and recovery are essential parts of the procedure.</p>
+
+  <p><strong>Preparation</strong> focuses on safety and comfort. Each pet receives an individualized anesthesia plan based on their health, procedure, and needs, with careful monitoring throughout. We pair these protocols with our low-stress hospital environment to reduce anxiety before procedures, helping pets feel calmer and more comfortable.</p>
+
+  <p><strong>Recovery</strong> is designed to support healing and minimize stress. Pets recover in our quiet, comfortable Casco kennels where integrated ventilation, heat, and soft lighting provide a gentle recovery zone.</p>
+
+  <hr />
+
+  <h3>Surgical Services</h3>
+  <p>We provide scheduled surgical procedures at Aspire Veterinary Hospital, including:</p>
+
+  <PawList
+    items={[
+      'Spays and neuters',
+      'Soft tissue surgery (such as mass removals and wound repair)',
+      'Orthopedic surgery (such as TPLOs)',
+      'Oral surgery and tooth extractions',
+      'Biopsies and other medically indicated interventions',
+    ]}
+  />
+
+  <p>We do not offer unscheduled emergency surgeries (such as walk-in cesarean sections or trauma surgery). When immediate emergency care is required, we recommend bringing your pet to an emergency or specialty hospital.</p>
+
+  <p>If your pet is booked for a surgery at Aspire and they have a stuffed animal in need of expert repair, our surgical staff will be happy to operate on your pet's stuffed animal the day of surgery at no additional charge.</p>
+
+  <hr />
+
+  <h3>Dental Services</h3>
+  <p>Our dental services build on routine wellness care and are designed to address both visible and hidden oral disease.</p>
+
+  <p>Dental services include:</p>
+
+  <PawList
+    items={[
+      'Professional dental cleanings (COHAT) under general anesthesia',
+      'Dental extractions when teeth are fractured, infected, or painful',
+      'Treatment of periodontal disease and oral infections',
+      'Evaluation of oral masses or areas of chronic inflammation',
+    ]}
+  />
+
+  <p>When advanced or specialized dental care is needed, we coordinate referrals or on-site specialty support to ensure appropriate treatment.</p>
+
+  <hr />
+
+  <h3>Specialist Collaboration</h3>
+  <p>Some medical conditions benefit from advanced expertise. When appropriate, Aspire Veterinary Hospital consults with anesthesia specialists via telemedicine and works with visiting surgical specialists on-site or coordinates referrals to trusted specialty centers, ensuring continuity of care and clear communication throughout the process.</p>
+
+  <hr />
+
+  <SplitSection
+    image="https://aspirevethospital.com/wp-content/uploads/2025/12/surgery-dentistry-commitment.jpg"
+    imageAlt="Veterinary team preparing for a surgical procedure"
+  >
+    <h2>Our Commitment</h2>
+    <p>Whether addressing dental disease or recommending surgery, our goal is always the same:</p>
+
+    <PawList
+      items={[
+        'Relieve pain',
+        'Restore function',
+        'Support long-term comfort and quality of life',
+      ]}
+    />
+
+    <p>We partner with families to transparently explain options, outline expectations, and recommend care that aligns with each pet's medical needs and your goals as an owner.</p>
+  </SplitSection>
+</ServiceLayout>

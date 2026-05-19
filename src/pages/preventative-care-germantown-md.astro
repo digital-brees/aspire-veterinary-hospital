@@ -1,0 +1,43 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+
+
+const tabs = [
+  { slug: 'examinations', label: 'Examinations', href: '/wellness-exams-germantown-md/' },
+  { slug: 'vaccinations', label: 'Vaccinations', href: '/vaccinations-germantown-md/' },
+  { slug: 'preventative-medications', label: 'Preventative Medications', href: '/preventative-care-germantown-md/' },
+  { slug: 'wellness-laboratory-diagnostics', label: 'Laboratory Diagnostics', href: '/wellness-laboratory-diagnostics-germantown-md/' },
+  { slug: 'wellness-imaging-diagnostics', label: 'Imaging Diagnostics', href: '/wellness-imaging-diagnostics-germantown-md/' },
+  { slug: 'dental-cleaning', label: 'Routine Dental Cleaning', href: '/dog-dental-care-germantown-md/' },
+];
+const schemaJson = `{"@context":"https://schema.org","@type":"MedicalProcedure","name":"Heartworm and Flea/Tick Prevention","description":"Year-round heartworm, flea, and tick preventatives for dogs and cats. Tailored preventive plans considering age, lifestyle, and medical history.","url":"https://aspirevethospital.com/preventative-care-germantown-md/","performer":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Heartworm & Flea/Tick Prevention for Pets in Germantown, MD | Aspire Veterinary Hospital"
+  description="Year-round heartworm, flea, and tick preventatives for dogs and cats in Maryland. Aspire Veterinary Hospital tailors plans for age, lifestyle, and history."
+  canonical="https://aspirevethospital.com/preventative-care-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/10/wellness-care-2_s1.jpg"
+  schemaJson={schemaJson}
+  currentService="wellness-care"
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2025/10/wellness-care-2_s1.jpg"
+  heroEyebrow="Wellness Care"
+  heroH1="Preventative Medications"
+  tabs={tabs}
+  activeSlug="preventative-medications"
+  tabsLabel="Wellness services"
+>
+  <p>Flea/Tick & Heartworm Preventatives are simple, everyday protection that keep pets comfortable and healthy. In Montgomery County, mosquitoes, fleas, and ticks can show up throughout the year, even during winter, so year-round coverage is the safest approach. It's far easier and more affordable to prevent problems than to treat them later. Our doctors will help you choose options that fit your pet's specific needs considering age, lifestyle, medical history, and more. <a href="/wellness-laboratory-diagnostics-germantown-md/">Learn about our infectious disease testing recommendations for heartworm and common tick diseases in our diagnostics section.</a></p>
+
+  <hr />
+
+  <h3>Heartworm</h3>
+  <p>Heartworm spreads to dogs and cats through mosquito bites. Over time, worms grow and live in the heart and lungs. Dogs may develop a cough, tire easily, or, in severe cases, face heart failure; cats can experience breathing trouble or sudden illness—even with only a few worms. Treatment for dogs is lengthy, costly, and can be painful. There is no approved treatment of heartworm in cats. A simple monthly preventative plus a quick yearly test keeps your pet protected.</p>
+
+  <hr />
+
+  <h3>Fleas & Ticks</h3>
+  <p>Fleas make pets itchy, can trigger skin allergies, and may carry tapeworms. Left unchecked, fleas don't just stay on pets—they can multiply in carpets and bedding and even bite people—turning a pet problem into a household one.</p>
+  <p>Ticks in our area can spread illnesses like Lyme, Rocky Mountain Spotted Fever, and others, which may lead to fever, sore joints, and longer-term complications if untreated. The <a href="https://www.cdc.gov/ticks/prevention/preventing-ticks-on-pets.html" target="_blank" rel="noopener noreferrer">CDC</a> recommends keeping pets current on tick prevention year-round to reduce the risk of ticks transmitting these diseases to people as well.</p>
+  <p>Modern preventatives stop flea infestations before they take hold and kill or repel ticks quickly, reducing the chance of disease transmission. Pair your pet's medication with easy habits—year-round dosing, quick tick checks after outdoor time, and good home hygiene—for the best protection.</p>
+</ServiceLayout>

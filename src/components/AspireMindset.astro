@@ -1,0 +1,138 @@
+---
+// AspireMindset.astro — circular pet photo + 3-item accordion (Vision/Mission/Approach)
+export interface MindsetItem {
+  title: string;
+  body: string;
+}
+
+export interface Props {
+  image?: string;
+  imageAlt?: string;
+  heading?: string;
+  subhead?: string;
+  items?: MindsetItem[];
+}
+
+const {
+  image = 'https://aspirevethospital.com/wp-content/uploads/2025/08/home_s2_updated1.jpg',
+  imageAlt = 'Veterinary professional holding a small tan dog',
+  heading = "It's not just about the medicine. It's about the mindset.",
+  subhead = 'Designed for success, we ensured every inch of Aspire supports one thing: making care easier for everyone in the room.',
+  items = [
+    {
+      title: 'Our Vision',
+      body: 'Our vision at Aspire Veterinary Hospital is to be the trusted home for exceptional veterinary care in our community. We strive to go beyond the standard of service by building true partnerships with our clients—working together to support the health and unique goals of every pet and working K9. Utilizing best-in-class diagnostics, advanced medical expertise, innovative solutions, and a healthcare team that includes you; we Aspire to revolutionize the definition of "standard" care.',
+    },
+    {
+      title: 'Our Mission',
+      body: "It is our goal to keep your animals healthy, active, and thriving. Whether it's the family pet, or a working K9, we provide care that is practical, compassionate, and tailored to their unique needs. Our team is committed to creating a welcoming, low-stress environment where strong trust relationships can be built, and where our education and guidance empower you to make the best decisions for your animal's health and well-being. Together, we can ensure that they live their best lives—at home, at work, and at play.",
+    },
+    {
+      title: 'Medicine that meets you where you are',
+      body: 'Whether you\'re a K9 handler ensuring your partner\'s readiness or a pet owner caring for your best friend, Aspire Veterinary Hospital is here to support you. Our hospital was designed with thought and intention, making accommodations that may feel "extraordinary" elsewhere simply part of everyday care here. By meeting you and your pet exactly where you are, we ensure that care is not only effective, but also accessible, comfortable, and successful.',
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="aspire-mindset">
+  <div class="aspire-mindset__inner">
+    <div class="aspire-mindset__photo">
+      <img src={image} alt={imageAlt} />
+    </div>
+    <div class="aspire-mindset__content">
+      <h2 class="aspire-mindset__heading">{heading}</h2>
+      <p class="aspire-mindset__subhead">{subhead}</p>
+      <div class="aspire-mindset__accordion">
+        {items.map((item) => (
+          <div class="aspire-mindset__item">
+            <button class="aspire-mindset__title" type="button">
+              {item.title}
+              <span class="aspire-mindset__icon">+</span>
+            </button>
+            <div class="aspire-mindset__body">
+              <p>{item.body}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .aspire-mindset { background: var(--aspire-bg); padding: var(--section-pad) 0; }
+  .aspire-mindset__inner {
+    max-width: var(--container);
+    margin: 0 auto; padding: 0 32px;
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    gap: 80px; align-items: center;
+  }
+  .aspire-mindset__photo {
+    aspect-ratio: 4 / 5;
+    border-radius: 50% / 45%;
+    overflow: hidden;
+    background: var(--aspire-bg-soft);
+    border: 2px solid var(--aspire-tan);
+    padding: 6px;
+  }
+  .aspire-mindset__photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    border-radius: 50% / 45%;
+  }
+  .aspire-mindset__heading {
+    font-family: var(--font-display);
+    font-size: 42px; font-weight: 500; line-height: 1.25;
+    color: var(--aspire-tan);
+    margin: 0 0 20px;
+  }
+  .aspire-mindset__subhead {
+    color: var(--aspire-text);
+    font-size: 16px;
+    margin: 0 0 32px;
+  }
+  .aspire-mindset__item {
+    border-top: 1px solid #e5e5e5;
+  }
+  .aspire-mindset__item:last-child { border-bottom: 1px solid #e5e5e5; }
+  .aspire-mindset__title {
+    width: 100%; background: none; border: none; text-align: left;
+    padding: 22px 0;
+    font-family: var(--font-display);
+    font-size: 20px; font-weight: 300;
+    color: var(--aspire-text);
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .aspire-mindset__icon {
+    font-family: var(--font-body);
+    font-weight: 300; font-size: 22px;
+    color: var(--aspire-text);
+    transition: transform 0.3s;
+  }
+  .aspire-mindset__item.is-open .aspire-mindset__icon { transform: rotate(45deg); }
+  .aspire-mindset__body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    color: var(--aspire-text);
+    font-size: 15px; line-height: 1.7;
+  }
+  .aspire-mindset__item.is-open .aspire-mindset__body {
+    max-height: 600px;
+    padding: 0 0 24px;
+  }
+  @media (max-width: 900px) {
+    .aspire-mindset__inner { grid-template-columns: 1fr; gap: 40px; }
+    .aspire-mindset__heading { font-size: 30px; }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('.aspire-mindset__title').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.aspire-mindset__item');
+      item?.classList.toggle('is-open');
+    });
+  });
+</script>

@@ -1,0 +1,280 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceHero from '../components/ServiceHero.astro';
+
+const positions = [
+  {
+    title: 'Client Service Representative',
+    type: 'Full-time',
+    href: '/client-service-representative-germantown-md/',
+  },
+  {
+    title: 'Sports Medicine Technician',
+    type: 'Full-time',
+    href: '/sports-medicine-technician-germantown-md/',
+  },
+  {
+    title: 'Veterinary Assistant/Technician I',
+    type: 'Full-time',
+    href: '/veterinary-assistant-technician-i-germantown-md/',
+  },
+  {
+    title: 'Veterinary Technician II',
+    type: 'Full-time',
+    href: '/veterinary-technician-ii-germantown-md/',
+  },
+  {
+    title: 'Veterinary Technician III–IV',
+    type: 'Full-time',
+    href: '/veterinary-technician-iii-iv-germantown-md/',
+  },
+];
+
+const schemaJson = `{"@context":"https://schema.org","@type":"JobPosting","hiringOrganization":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","sameAs":"https://aspirevethospital.com/","logo":"https://aspirevethospital.com/wp-content/uploads/2025/07/AVH-logo-mob.png"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}},"employmentType":"FULL_TIME","title":"Veterinary careers at Aspire Veterinary Hospital","description":"Multiple open positions: Client Service Representative, Sports Medicine Technician, Veterinary Assistant/Technician I, Veterinary Technician II, Veterinary Technician III–IV.","url":"https://aspirevethospital.com/careers-germantown-md/"}`;
+---
+
+<BaseLayout
+  title="Veterinary Careers in Germantown, MD | Aspire Veterinary Hospital"
+  description="Join Aspire Veterinary Hospital — open roles for client service, sports medicine technicians, and veterinary technicians I–IV at a progressive, team-oriented practice."
+  canonical="https://aspirevethospital.com/careers-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/11/Careers-s2-2.jpg"
+  ogType="article"
+  schemaJson={schemaJson}
+  currentService="careers"
+>
+  <ServiceHero
+    bgImage="https://aspirevethospital.com/wp-content/uploads/2025/11/Careers-s2-2.jpg"
+    bgVideo="https://aspirevethospital.com/wp-content/uploads/2025/08/careers-s1-vid.mp4"
+    h1="Be Part of Our Story"
+    lede="Join a supportive team making an impact in our community one pet at a time."
+  />
+
+  <section class="content">
+    <div class="content__inner">
+      <div class="careers-intro">
+        <div class="careers-intro__copy">
+          <h2 class="careers-intro__pullquote" data-reveal data-reveal-delay="100">Grow Your Career with a Team That Truly Cares</h2>
+          <p data-reveal data-reveal-delay="300">We're looking for passionate veterinary professionals ready to make a meaningful impact in a progressive, team-oriented hospital. Here, you'll work with dedicated colleagues, advanced medical services, and a compassionate, low-stress approach to patient care. Whether you're honing your skills or reaching for the next step in your career, this is where your expertise and love for animals can thrive—scroll down to see how you can join us.</p>
+        </div>
+        <div class="careers-intro__images">
+          <img class="careers-intro__img careers-intro__img--back" data-reveal data-reveal-delay="0" src="https://aspirevethospital.com/wp-content/uploads/2025/11/Careers-s2-2.jpg" alt="Working dog being cared for by Aspire Veterinary Hospital team" loading="lazy" />
+          <img class="careers-intro__img careers-intro__img--front" data-reveal data-reveal-delay="450" src="https://aspirevethospital.com/wp-content/uploads/2025/11/Careers-s2-1.jpg" alt="Veterinary technician holding a cat" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="positions" id="open_positions">
+    <div class="positions__inner">
+      <h2 class="positions__title">Open Positions</h2>
+      <ul class="positions__list">
+        {positions.map((p) => (
+          <li class="position-card">
+            <h4 class="position-card__title">{p.title}</h4>
+            <span class="position-card__type">{p.type}</span>
+            <a class="position-card__btn" href={p.href}>View Description</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Scroll-reveal animation utility — pairs with the IntersectionObserver script below.
+     Elements with [data-reveal] start invisible/translated; .is-revealed fades them in. */
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s ease, transform 0.9s ease;
+  }
+  [data-reveal].is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* Intro — text-left (pullquote on top) + two overlapping oval-framed images on the right */
+  .careers-intro {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 60px;
+    align-items: center;
+    margin: 32px 0 48px;
+  }
+  .careers-intro__copy > :first-child { margin-top: 0; }
+  .careers-intro__copy > :last-child { margin-bottom: 0; }
+  .careers-intro__pullquote {
+    font-family: var(--font-display);
+    font-size: 44px;
+    font-weight: 500;
+    color: var(--aspire-tan);
+    line-height: 1.15;
+    margin: 0 0 24px;
+  }
+
+  /* Two oval images, side-by-side, overlapping. Back image (dog, tan) sits up
+     and to the left; front image (cat, navy) sits offset down and to the right. */
+  .careers-intro__images {
+    position: relative;
+    min-height: 560px;
+  }
+  .careers-intro__img {
+    position: absolute;
+    width: 280px;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 200px;
+    background: #fff;
+  }
+  .careers-intro__img--back {
+    top: 0;
+    left: 0;
+    border: 5px solid var(--aspire-tan);
+    z-index: 1;
+  }
+  .careers-intro__img--front {
+    top: 80px;
+    left: 200px;
+    border: 5px solid var(--aspire-navy);
+    z-index: 2;
+  }
+
+  @media (max-width: 1080px) {
+    .careers-intro__img { width: 240px; height: 360px; }
+    .careers-intro__img--front { left: 170px; top: 70px; }
+    .careers-intro__images { min-height: 480px; }
+  }
+  @media (max-width: 900px) {
+    .careers-intro {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .careers-intro__pullquote { font-size: 34px; }
+    .careers-intro__images { min-height: 460px; max-width: 480px; margin: 0 auto; }
+  }
+  @media (max-width: 560px) {
+    .careers-intro__img { width: 180px; height: 280px; }
+    .careers-intro__img--front { left: 130px; top: 70px; }
+    .careers-intro__images { min-height: 360px; }
+    .careers-intro__pullquote { font-size: 28px; }
+  }
+
+  /* Open Positions section — full-width cream band */
+  .positions {
+    background: var(--aspire-cream);
+    padding: 80px 0;
+  }
+  .positions__inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .positions__title {
+    color: var(--aspire-tan);
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 500;
+    margin: 0 0 32px;
+    text-align: center;
+  }
+  .positions__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .position-card {
+    display: grid;
+    grid-template-columns: 2fr 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 22px 30px;
+    background: rgba(255, 255, 255, 0.6);
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    transition: background 0.2s ease, box-shadow 0.2s ease;
+  }
+  .position-card:hover {
+    background: #ffffff;
+    box-shadow: 0 4px 18px rgba(47, 65, 87, 0.08);
+  }
+  .position-card__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--aspire-text-dark);
+  }
+  .position-card__type {
+    text-align: center;
+    font-family: var(--font-body);
+    font-size: 15px;
+    color: var(--aspire-text);
+  }
+  .position-card__btn {
+    display: inline-block;
+    background: var(--aspire-navy);
+    color: var(--aspire-cream);
+    border: 1px solid var(--aspire-cream);
+    border-radius: 5px;
+    padding: 12px 22px;
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.25s, color 0.25s;
+  }
+  .position-card__btn:hover {
+    background: var(--aspire-cream);
+    color: var(--aspire-navy);
+  }
+  @media (max-width: 720px) {
+    .position-card {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      text-align: center;
+    }
+    .position-card__type { text-align: center; }
+    .position-card__btn { justify-self: center; }
+  }
+</style>
+
+<script>
+  // Scroll-reveal: fade-in-up any [data-reveal] element when it enters the viewport.
+  // Honors per-element `data-reveal-delay` (milliseconds) so siblings can stagger.
+  // Runs once per element (unobserved after revealing) to avoid retriggering on scroll-back.
+  (function () {
+    const els = document.querySelectorAll('[data-reveal]');
+    if (els.length === 0) return;
+
+    // Respect users who've opted out of motion.
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      els.forEach(el => el.classList.add('is-revealed'));
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target as HTMLElement;
+        const delay = parseInt(el.dataset.revealDelay || '0', 10);
+        window.setTimeout(() => el.classList.add('is-revealed'), delay);
+        obs.unobserve(el);
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
+
+    els.forEach(el => observer.observe(el));
+  })();
+</script>

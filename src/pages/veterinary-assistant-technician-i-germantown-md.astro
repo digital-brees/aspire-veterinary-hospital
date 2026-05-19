@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JobPageLayout from '../components/JobPageLayout.astro';
+import JobToggle from '../components/JobToggle.astro';
+
+const schemaJson = `{"@context":"https://schema.org","@type":"JobPosting","title":"Veterinary Assistant / Technician I","datePosted":"2025-08-24","employmentType":"FULL_TIME","baseSalary":{"@type":"MonetaryAmount","currency":"USD","value":{"@type":"QuantitativeValue","minValue":18,"maxValue":23,"unitText":"HOUR"}},"hiringOrganization":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","sameAs":"https://aspirevethospital.com/","logo":"https://aspirevethospital.com/wp-content/uploads/2025/07/AVH-logo-mob.png"},"jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}},"description":"Entry-level to experienced unregistered veterinary technician role at Aspire Veterinary Hospital with structured mentorship and exposure to specialty care.","url":"https://aspirevethospital.com/veterinary-assistant-technician-i-germantown-md/"}`;
+---
+
+<BaseLayout
+  title="Veterinary Assistant/Technician I Job in Germantown, MD | Aspire Veterinary Hospital"
+  description="Now hiring veterinary assistants and Technician I — entry-level to experienced positions with structured mentorship and exposure to specialty care in Germantown, MD."
+  canonical="https://aspirevethospital.com/veterinary-assistant-technician-i-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/10/Veterinary-Assistant-image.jpg"
+  ogType="article"
+  schemaJson={schemaJson}
+  currentService="careers"
+>
+  <JobPageLayout
+    jobTitle="Veterinary Assistant / Technician I"
+    heroImage="https://aspirevethospital.com/wp-content/uploads/2025/10/Veterinary-Assistant-image.jpg"
+    location="Darnestown, MD"
+    jobType="Full-Time"
+    compensation="$18–$23/hour"
+    contactEmail="operations@aspirevethospital.com"
+    postedDate="August 24, 2025"
+  >
+    <h3>Overview</h3>
+    <p>Aspire Veterinary Hospital is seeking compassionate, driven individuals with a passion for animal care to join our growing team. This position is ideal for applicants ranging from entry-level veterinary assistants to experienced unregistered technicians.</p>
+    <p>Whether you're just starting your journey in the veterinary field or looking to expand your technical skill set, this role is designed to support and grow your career through structured mentorship, extensive hands-on training, and exposure to specialized care (including working dog and rehab protocols).</p>
+    <p>We welcome applicants with prior experience in animal daycare, grooming, training, or other pet care settings who are looking to transition into a technical veterinary role. Aspire Vet is proud to be a hospital that values teamwork, education, and client partnership. With our strong focus on wellness, rehabilitation, and working dog care, this is an opportunity to be part of a pioneering practice in Montgomery County.</p>
+
+    <JobToggle title="Key Responsibilities">
+      <p>Duties will depend on experience level and training but may include:</p>
+
+      <h4>Clinician, Inventory, and Restocking</h4>
+      <ul>
+        <li>Maintain a clean and organized clinical environment</li>
+        <li>Follow cleanliness and infection control protocols</li>
+        <li>Ensure exam rooms, treatment and procedure areas are stocked and reset between uses</li>
+        <li>Monitor and restock inventory and medical supplies throughout the hospital</li>
+      </ul>
+
+      <h4>Exam & Treatment Support</h4>
+      <ul>
+        <li>Assist in wellness and technician appointments</li>
+        <li>Perform vitals evaluations, blood pressure checks, and nail trims on compliant animals</li>
+        <li>Participate in low-stress patient handling and restraint</li>
+        <li>Administer vaccines, medications, and Sub-Q fluids with guidance/supervision of additional staff (senior technical staff and/or veterinarians)</li>
+      </ul>
+
+      <h4>Laboratory Skills</h4>
+      <ul>
+        <li>Prepare and analyze in-house blood, urine, and fecal samples</li>
+        <li>Prepare lab samples to send to reference laboratories</li>
+        <li>Operate and maintain in house lab equipment</li>
+        <li>Support in house microscopy and bacterial culture testing</li>
+      </ul>
+
+      <h4>Digital Imaging</h4>
+      <ul>
+        <li>Assist with patient prep, positioning, and image generation for X-ray and ultrasound</li>
+        <li>Ensure imaging safety (PPE use)</li>
+      </ul>
+
+      <h4>Procedure Support – Dental, Surgical & Rehab</h4>
+      <ul>
+        <li>Prepare dental and surgical suites and associated instruments</li>
+        <li>Assist with surgical documentation and patient recovery</li>
+        <li>Support underwater treadmill and conditioning therapies</li>
+      </ul>
+
+      <h4>Client Interaction & Administration</h4>
+      <ul>
+        <li>Schedule appointments and follow-ups via phone calls or in person</li>
+        <li>Obtain patient histories and provide client education at the direction of senior technical staff and/or veterinarians</li>
+        <li>Prepare routine estimates and discharge instructions</li>
+        <li>Participate in inventory management and CSR cross-training</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Who Should Apply">
+      <p>We encourage applications from:</p>
+      <ul>
+        <li>Individuals with a passion to enter the veterinary field (e.g., experience in grooming, daycare, training, or other animal care settings)</li>
+        <li>Experienced uncredentialed technicians seeking to deepen their clinical skills</li>
+        <li>Candidates excited to work in a progressive, team-based hospital with a strong learning culture</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Qualifications">
+      <h4>Entry-level Assistant candidates</h4>
+      <ul>
+        <li>Strong desire to work in the veterinary industry</li>
+        <li>Ability to learn routine veterinary protocols and patient care techniques</li>
+        <li>Interest in animal behavior and preventative health</li>
+      </ul>
+
+      <h4>Technician-level candidates</h4>
+      <ul>
+        <li>Comfort with routine exam and treatment protocols</li>
+        <li>Understanding of advanced support procedures</li>
+        <li>Experience with lab, imaging, and surgical prep</li>
+        <li>Comfort with differing communication styles</li>
+        <li>Prior use of practice management software</li>
+        <li>Prior experience with rehab equipment (including underwater treadmill) is highly desired</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Growth Opportunities">
+      <p>As a member of Aspire's care team, you'll receive:</p>
+      <ul>
+        <li>Structured onboarding</li>
+        <li>Continued training and mentorship</li>
+        <li>Career path development toward Technician Level II or Credentialed Technician position if desired</li>
+        <li>Exposure to specialized care (rehabilitation, acupuncture, service dogs)</li>
+      </ul>
+    </JobToggle>
+
+    <JobToggle title="Schedule & Benefits">
+      <ul>
+        <li>Full-Time; 36-40 hrs/wk
+          <ul>
+            <li>Hospital Hours: M–F 8am–6pm, Saturdays 9am–1pm</li>
+            <li>Consistent Weekly Schedule + Alternating Saturday coverage</li>
+          </ul>
+        </li>
+        <li>Competitive pay based on experience</li>
+        <li>Health benefits, 401k matching, and paid time off available for full-time employees</li>
+        <li>Healthcare and product discounts for employee pets</li>
+        <li>Located in a rapidly growing and pet-loving community in Montgomery County, MD</li>
+      </ul>
+    </JobToggle>
+
+    <p><strong>Aspire Veterinary Hospital is an equal opportunity employer.</strong> We celebrate diversity and are committed to creating an inclusive environment for all employees.</p>
+
+    <p><strong>Ready to grow with us?</strong> Apply today to help elevate care and enrich lives—starting with your own!</p>
+  </JobPageLayout>
+</BaseLayout>

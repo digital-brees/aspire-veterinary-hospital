@@ -1,0 +1,56 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import PawList from '../components/PawList.astro';
+
+const tabs = [
+  { slug: 'examinations', label: 'Examinations', href: '/wellness-exams-germantown-md/' },
+  { slug: 'vaccinations', label: 'Vaccinations', href: '/vaccinations-germantown-md/' },
+  { slug: 'preventative-medications', label: 'Preventative Medications', href: '/preventative-care-germantown-md/' },
+  { slug: 'wellness-laboratory-diagnostics', label: 'Laboratory Diagnostics', href: '/wellness-laboratory-diagnostics-germantown-md/' },
+  { slug: 'wellness-imaging-diagnostics', label: 'Imaging Diagnostics', href: '/wellness-imaging-diagnostics-germantown-md/' },
+  { slug: 'dental-cleaning', label: 'Routine Dental Cleaning', href: '/dog-dental-care-germantown-md/' },
+];
+const schemaJson = `{"@context":"https://schema.org","@type":"MedicalProcedure","name":"Pet Dental Cleaning (COHAT)","description":"Professional pet dental cleaning under anesthesia, including full-mouth dental X-rays, plaque and tartar removal above and below the gumline, polishing, and home care planning.","url":"https://aspirevethospital.com/dog-dental-care-germantown-md/","performer":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Pet Dental Cleaning in Germantown, MD | Aspire Veterinary Hospital"
+  description="Professional dog and cat dental cleanings under anesthesia, with full-mouth dental X-rays. Aspire Veterinary Hospital in Germantown, MD."
+  canonical="https://aspirevethospital.com/dog-dental-care-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/10/wellness-care-2_s1.jpg"
+  schemaJson={schemaJson}
+  currentService="wellness-care"
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2025/10/wellness-care-2_s1.jpg"
+  heroEyebrow="Wellness Care"
+  heroH1="Routine Dental Cleaning"
+  tabs={tabs}
+  activeSlug="dental-cleaning"
+  tabsLabel="Wellness services"
+>
+  <p>A professional cleaning lets us do what at-home care can't. A pre-exam and pre-anesthetic blood panel is required to assess the safety of anesthesia for your pet and to tailor a surgical plan to their unique needs. Your pet is closely monitored during the entirety of the procedure as we take full-mouth dental X-rays, remove plaque and tartar above and below the gumline, polish the teeth, and chart any problem areas. After the procedure, we'll share clear before-and-after findings and send you home with a simple plan for brushing and dental products that fit your routine.</p>
+
+  <hr />
+
+  <h3>Why It Matters</h3>
+  <p>Dental disease is one of the most common and overlooked health issues in pets. Bacteria and inflammation around the gums can cause pain, bone loss, trouble eating, and bad breath; left unchecked, ongoing oral infection can also strain a pet's overall health. Regular cleanings reduce pain, protect the gums and bone that support the teeth, and help your pet stay comfortable, active, and happy.</p>
+
+  <hr />
+
+  <h3>Daily Habits for Healthier Teeth</h3>
+  <PawList
+    cols={2}
+    items={[
+      '<strong>Brush, even a little:</strong> Aim for daily brushing with a pet-safe toothpaste (never human toothpaste).',
+      '<strong>Choose smart chews:</strong> Dental chews or treats can help reduce plaque. Look for options with the VOHC® (Veterinary Oral Health Council) seal, and keep an eye on calories.',
+      '<strong>Avoid very hard items:</strong> Skip antlers, bones, hooves, and hard nylon toys, they can crack teeth. If it\'s too hard to dent with a fingernail, it\'s too hard to chew.',
+      '<strong>Water additives & diets:</strong> For pets who dislike brushing, approved water additives or dental diets can support oral health.',
+      `<strong>Do a quick "lip lift" check:</strong> Once a week, gently lift the lip to look for redness along the gums, brown buildup, broken teeth, or a foul odor. Early changes are easier to fix.`,
+      '<strong>Stay on a schedule:</strong> Pair home care with regular exams and professional cleanings as recommended for lasting comfort.',
+    ]}
+  />
+
+  <hr />
+
+  <h3>Signs Your Pet May Need a Cleaning</h3>
+  <p>Watch for bad breath, yellow or brown buildup on teeth, red or bleeding gums, drooling, or dropping food. Pets may chew on one side, paw at the mouth, avoid harder treats or toys, or seem less interested in eating. You might also notice facial swelling, loose or broken teeth, or behavior changes linked to discomfort. If you're seeing any of these, a dental exam can tell us what course of treatment is most appropriate.</p>
+</ServiceLayout>

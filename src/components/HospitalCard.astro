@@ -1,0 +1,68 @@
+---
+// HospitalCard.astro — emergency hospital referral box.
+// Designed to be placed inside a .hospital-grid wrapper (see tokens.css).
+export interface Props {
+  name: string;
+  addressLines: string[];
+  addressHref: string;
+  phone: string;
+  phoneDisplay?: string;
+  website: string;
+  websiteDisplay?: string;
+  hours: string;
+}
+const { name, addressLines, addressHref, phone, phoneDisplay, website, websiteDisplay, hours } = Astro.props;
+---
+
+<div class="hospital-card">
+  <p class="hospital-card__name"><strong>{name}</strong></p>
+  <ul class="hospital-card__list">
+    <li>
+      <a href={addressHref} target="_blank" rel="noopener noreferrer">
+        {addressLines.map((line, i) => (
+          <>
+            {i > 0 && <br />}
+            {line}
+          </>
+        ))}
+      </a>
+    </li>
+    <li><a href={`tel:${phone}`}>{phoneDisplay ?? phone}</a></li>
+    <li><a href={website} target="_blank" rel="noopener noreferrer">{websiteDisplay ?? website}</a></li>
+    <li>Hours: {hours}</li>
+  </ul>
+</div>
+
+<style>
+  .hospital-card {
+    background: #F9F7F4;
+    padding: 26px 28px;
+    border-left: 5px solid var(--aspire-tan);
+  }
+  .hospital-card__name {
+    font-family: var(--font-body);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--aspire-text-dark);
+    margin: 0 0 5px;
+    line-height: 1.4;
+  }
+  .hospital-card__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .hospital-card__list li {
+    font-size: 16px;
+    line-height: 1.7;
+    padding: 3px 0;
+    color: var(--aspire-text);
+  }
+  .hospital-card__list li a {
+    color: var(--aspire-text);
+    text-decoration: underline;
+  }
+  .hospital-card__list li a:hover {
+    color: var(--aspire-tan);
+  }
+</style>

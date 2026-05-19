@@ -1,0 +1,58 @@
+---
+// SplitSection.astro — image + content side-by-side with a heavy oval
+// navy-frame portrait image. Matches live "What to expect" pattern.
+//
+// Default: image on the LEFT, content on the RIGHT.
+// Pass `reverse` to flip: content LEFT, image RIGHT.
+export interface Props {
+  image: string;
+  imageAlt?: string;
+  reverse?: boolean;
+}
+const { image, imageAlt, reverse = false } = Astro.props;
+---
+
+<div class:list={['split-section', reverse && 'split-section--reverse']}>
+  <div class="split-section__image" role="img" aria-label={imageAlt || ''} style={`background-image: url('${image}');`} />
+  <div class="split-section__content">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .split-section {
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    gap: 60px;
+    align-items: center;
+    margin: 48px 0;
+  }
+  /* Reverse: content on the left (2fr→3fr swap), image on the right. */
+  .split-section--reverse {
+    grid-template-columns: 3fr 2fr;
+  }
+  .split-section--reverse .split-section__image { order: 2; }
+  .split-section--reverse .split-section__content { order: 1; }
+
+  .split-section__image {
+    width: 100%;
+    aspect-ratio: 410 / 586;
+    background-size: cover;
+    background-position: center;
+    border: 5px solid var(--aspire-navy);
+    border-radius: 200px;
+  }
+  .split-section__content > :first-child { margin-top: 0; }
+  .split-section__content > :last-child { margin-bottom: 0; }
+  @media (max-width: 720px) {
+    .split-section,
+    .split-section--reverse {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    .split-section__image { max-width: 320px; margin: 0 auto; }
+    /* On mobile, always show image first then content (clean reading order). */
+    .split-section--reverse .split-section__image { order: 1; }
+    .split-section--reverse .split-section__content { order: 2; }
+  }
+</style>

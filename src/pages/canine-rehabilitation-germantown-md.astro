@@ -1,0 +1,63 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import SplitSection from '../components/SplitSection.astro';
+import JobToggle from '../components/JobToggle.astro';
+
+const schemaJson = `{"@context":"https://schema.org","@type":"Service","name":"Canine Rehabilitation","description":"Veterinarian-led rehab for dogs and cats recovering from injury, surgery, or chronic conditions — including CCL tears, hip/elbow dysplasia, IVDD, soft tissue injuries, and back pain.","url":"https://aspirevethospital.com/canine-rehabilitation-germantown-md/","provider":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Canine Rehabilitation in Germantown, MD | Aspire Veterinary Hospital"
+  description="Veterinarian-led rehab for dogs and cats recovering from injury, surgery, or chronic conditions — CCL tears, hip/elbow dysplasia, IVDD, soft tissue injuries, and more."
+  canonical="https://aspirevethospital.com/canine-rehabilitation-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2026/02/rehab-1.jpg"
+  schemaJson={schemaJson}
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2026/02/rehab-1.jpg"
+  heroH1="Canine Rehabilitation"
+  heroLede="Personalized care to support comfort, mobility, and overall wellbeing."
+>
+  <SplitSection
+    image="https://aspirevethospital.com/wp-content/uploads/2026/02/rehab-1.jpg"
+    imageAlt="Dog receiving kinesiology taping during rehabilitation"
+    reverse
+  >
+    <h2 class="section-h2">Rehab program</h2>
+    <p>For dogs and cats that have conditions that require more oversight and expertise during exercise sessions, Aspire is pleased to offer formal rehab services.</p>
+
+    <p>Common scenarios that require rehab instead of fitness sessions include knee injuries (CCL tear), hip or elbow dysplasia (arthritis), soft tissue injuries, back pain, and neurologic conditions like intervertebral disc disease (IVDD) and degenerative myelopathy.</p>
+
+    <p>For patients in our rehab program, frequent veterinarian-led monitoring is intentionally paired with their exercise sessions to ensure they are rebuilding strength appropriately, maintaining proper biomechanics, and minimizing risk of re-injury as they transition back into fitness programming. This continuity allows us to adjust intensity, progression, and recovery strategies in real time, like the <a href="/acupuncture-pain-management-germantown-md/#Therapeutic_Laser">use of laser therapy</a>, to support safe return to activity and long-term durability.</p>
+
+    <p>Many patients who complete a structured rehabilitation program are then able to return to fitness-based physical activity. Because rehabilitation and fitness services are housed under the same roof at Aspire, patients remain within a coordinated medical framework throughout their entire journey.</p>
+  </SplitSection>
+
+  <h2 class="faq-title">Frequently Asked Questions</h2>
+
+  <JobToggle title="How does Fitness differ from Rehabilitation?">
+    <ul>
+      <li>The starting point and the goals are the true difference.</li>
+      <li>Rehab often starts with a mobility deficit with a goal of getting back to baselines (e.g. I had an injury like an ACL tear and am trying to get back to normal function).</li>
+      <li>Fitness starts at baseline with a goal of improving. The exercises may be similar, but the duration or degree of difficulty will increase over time to build power and stamina. Improving fitness and conditioning goals are not just for working dogs. Goals can vary and are all equally important – from wanting to hike a bit further to increasing your run time on an agility course. No goal is too small or too lofty.</li>
+    </ul>
+  </JobToggle>
+
+</ServiceLayout>
+
+<style>
+  /* Live section H2 ("Rehab program") is rendered at ~42px. The global .content
+     h2 rule is 32px tan — bump these specific section titles. */
+  .section-h2 {
+    font-size: 42px !important;
+    line-height: 1.15;
+  }
+  /* Live FAQ heading is 24px, centered. Override the 32px global. */
+  .faq-title {
+    font-size: 24px !important;
+    text-align: center;
+    margin-top: 56px !important;
+    margin-bottom: 24px !important;
+  }
+  @media (max-width: 720px) {
+    .section-h2 { font-size: 30px !important; }
+  }
+</style>

@@ -1,0 +1,78 @@
+---
+// AspireDoctorSpotlight.astro — single-doctor spotlight: photo left, white bio card right
+export interface Props {
+  photo?: string;
+  photoAlt?: string;
+  heading?: string;
+  doctorName?: string;
+  doctorHref?: string;
+  bio?: string;  // bio text — doctor name will be linked automatically if it appears
+}
+
+const {
+  photo = 'https://aspirevethospital.com/wp-content/uploads/2025/11/mtd-Matheny.jpg',
+  photoAlt = 'Dr. Anna Matheny with a Bernese Mountain Dog',
+  heading = 'Meet Our Doctor',
+  doctorName = 'Dr. Anna Matheny',
+  doctorHref = '/our-team/anna-matheny-dvm-cvma-ccrp-cwdp/',
+  bio = 'has built her career on a foundation of dedication, compassion, and a commitment to advancing veterinary medicine. With expertise in general practice, acupuncture, and rehabilitation, she brings a thoughtful, individualized approach to every patient she treats. Her vision for Aspire Veterinary Hospital is to create a space where comprehensive care thrives and both pets and their people feel fully supported. Aspire Veterinary Hospital was founded with the goal of elevating care for all animals and enriching the lives of those who depend on them by using medical practices that meet each patient and their person exactly where they are.',
+} = Astro.props;
+---
+
+<section class="aspire-doctor">
+  <div class="aspire-doctor__inner">
+    <div class="aspire-doctor__photo" role="img" aria-label={photoAlt} style={`background-image: url('${photo}');`}></div>
+    <div class="aspire-doctor__card">
+      <h2 class="aspire-doctor__heading">{heading}</h2>
+      <p class="aspire-doctor__bio">
+        <a href={doctorHref}>{doctorName}</a> {bio}
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .aspire-doctor {
+    background: var(--aspire-bg-soft);
+    padding: var(--section-pad) 0;
+  }
+  .aspire-doctor__inner {
+    max-width: var(--container);
+    margin: 0 auto; padding: 0 32px;
+    display: grid;
+    grid-template-columns: 0.85fr 1fr;
+    gap: 60px; align-items: center;
+  }
+  .aspire-doctor__photo {
+    aspect-ratio: 4 / 5;
+    background-size: cover;
+    background-position: center;
+    border-radius: 4px;
+  }
+  .aspire-doctor__card {
+    background: #fff;
+    padding: 64px 56px;
+    box-shadow: 0 2px 24px rgba(47,65,87,0.06);
+    text-align: center;
+  }
+  .aspire-doctor__heading {
+    font-family: var(--font-display);
+    font-size: 42px; font-weight: 500;
+    color: var(--aspire-tan);
+    margin: 0 0 28px;
+  }
+  .aspire-doctor__bio {
+    color: var(--aspire-text);
+    font-size: 15px; line-height: 1.8;
+    margin: 0;
+  }
+  .aspire-doctor__bio a {
+    color: var(--aspire-tan);
+    text-decoration: underline;
+  }
+  @media (max-width: 900px) {
+    .aspire-doctor__inner { grid-template-columns: 1fr; gap: 40px; }
+    .aspire-doctor__heading { font-size: 30px; }
+    .aspire-doctor__card { padding: 40px 28px; }
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import SplitSection from '../components/SplitSection.astro';
+
+const tabs = [
+  { slug: 'urgent-care', label: 'Urgent Care', href: '/urgent-care-germantown-md/' },
+  { slug: 'chronic-care', label: 'Chronic Care', href: '/chronic-care-germantown-md/' },
+  { slug: 'illness-laboratory-diagnostics', label: 'Laboratory Diagnostics', href: '/illness-laboratory-diagnostics-germantown-md/' },
+  { slug: 'illness-imaging-diagnostics', label: 'Imaging Diagnostics', href: '/illness-imaging-diagnostics-germantown-md/' },
+];
+const schemaJson = `{"@context":"https://schema.org","@type":"MedicalProcedure","name":"Illness Imaging Diagnostics","description":"Diagnostic imaging for sick pets including digital radiography (X-rays), abdominal ultrasound, and dental X-rays — with board-certified radiologist review.","url":"https://aspirevethospital.com/illness-imaging-diagnostics-germantown-md/","performer":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"}}}`;
+---
+
+<ServiceLayout
+  title="Illness X-Rays, Ultrasound & Dental Imaging | Aspire Veterinary Hospital"
+  description="X-rays, abdominal ultrasound, and dental imaging for diagnosing illness in dogs and cats. Specialist radiology review in Germantown, MD."
+  canonical="https://aspirevethospital.com/illness-imaging-diagnostics-germantown-md/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/10/sick-care-s1.jpg"
+  schemaJson={schemaJson}
+  currentService="illness-care"
+  heroImage="https://aspirevethospital.com/wp-content/uploads/2025/10/sick-care-s1.jpg"
+  heroEyebrow="Illness Care"
+  heroH1="Imaging Diagnostics"
+  tabs={tabs}
+  activeSlug="illness-imaging-diagnostics"
+  tabsLabel="Illness services"
+>
+  <p>When pets are sick, imaging is one of the most powerful tools we have to understand what's happening inside the body. These tests give us a clear picture of bones, organs, and soft tissues, often providing answers that guide treatment quickly and effectively. By combining in-house imaging with access to radiology specialists, we can diagnose and manage a wide range of illnesses with confidence and care.</p>
+
+  <hr />
+
+  <h3>Digital Radiography (X-Rays)</h3>
+  <p>With both a standard table X-ray unit and a mobile X-ray system, we can adapt imaging to your pet\'s specific needs. This flexibility means we can capture high-quality images even when pets are uncomfortable, in pain, or difficult to position. X-rays can help us detect fractures, foreign objects, fluid around the lungs, or organ enlargement—conditions where prompt treatment can be imperative. Our unique mobile unit also allows us to creatively acquire images to reduce stress for pets.</p>
+
+  <hr />
+
+  <h3>Abdominal Ultrasound</h3>
+  <p>Ultrasound gives us real-time views of soft tissue structures, helping us detect masses, intestinal blockages, or fluid buildup. It is especially useful for guiding procedures such as fluid sampling or biopsies, allowing us to confirm a diagnosis quickly and accurately. Ultrasound helps us uncover the "why" behind many symptoms, from vomiting to changes in urination.</p>
+
+  <hr />
+
+  <h3>Dental X-Rays</h3>
+  <p>Dental X-rays are critical when pets show signs of oral pain, bad breath, or difficulty eating. These images are acquired as part of a dental procedure under anesthesia and allow us to diagnose problems like tooth root abscesses, fractured teeth, or bone loss that aren\'t visible during an exam. By identifying the true source of discomfort, we can provide targeted treatment to restore health and relieve pain.</p>
+
+  <hr />
+
+  <SplitSection
+    image="https://aspirevethospital.com/wp-content/uploads/2025/12/Illness-Imaging-Diagnostics-1tab-img.jpg"
+    imageAlt="Pet receiving imaging diagnostics"
+  >
+    <h2>Collaboration with Specialists</h2>
+    <p>All imaging studies can be reviewed by board-certified radiologists or other specialists, providing a second layer of expertise. This ensures no detail is missed and your pet\'s treatment plan is based on the most accurate, comprehensive information available. We partner with mobile internal medicine specialists who can come to Aspire to perform very detailed abdominal ultrasounds for certain cases when needed.</p>
+    <p>For routine preventive imaging, visit our <a href="/wellness-imaging-diagnostics-germantown-md/">Wellness Imaging Diagnostics page</a> to see how these tools support long-term health.</p>
+  </SplitSection>
+</ServiceLayout>

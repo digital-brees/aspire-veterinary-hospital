@@ -1,0 +1,92 @@
+---
+// AspireHero.astro - full-bleed hero with white logo lockup, headline, and subhead.
+export interface Props {
+  bgImage?: string;
+  lockupImg?: string;
+  headline?: string;
+  subhead?: string;
+}
+
+const {
+  bgImage = 'https://aspirevethospital.com/wp-content/uploads/2026/05/aspire-home-sec1-dog-updated.jpg',
+  lockupImg = 'https://aspirevethospital.com/wp-content/uploads/2025/12/AVH_PNG_4.-Horizontal-White-min-scaled-1.png',
+  headline = 'Now Accepting<br>New Clients!',
+  subhead = 'We believe that care is never standard. At Aspire we take time to understand your veterinary goals, and your pets needs, to ensure we provide uniquely tailored comprehensive healthcare.',
+} = Astro.props;
+---
+
+<section class="aspire-hero">
+  <div class="aspire-hero__bg" style={`background-image: url('${bgImage}');`}></div>
+  <div class="aspire-hero__overlay"></div>
+
+  <div class="aspire-hero__inner">
+    <img class="aspire-hero__lockup-img" src={lockupImg} alt="Aspire Veterinary Hospital - Elevating Care, Enriching Lives" />
+    <div class="aspire-hero__copy">
+      <h1 class="aspire-hero__headline" set:html={headline}></h1>
+      <p class="aspire-hero__subhead">{subhead}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .aspire-hero {
+    position: relative;
+    min-height: 100vh;
+    color: #fff;
+    overflow: hidden;
+    background-color: #1d2a39;
+  }
+  .aspire-hero__bg {
+    position: absolute; inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+  .aspire-hero__overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(26,34,48,0.35) 0%, rgba(26,34,48,0.15) 35%, rgba(26,34,48,0.85) 100%);
+    z-index: 1;
+  }
+  .aspire-hero__inner {
+    position: relative; z-index: 2;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 200px 32px 80px;
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .aspire-hero__lockup-img {
+    max-width: 600px;
+    width: 60%;
+    height: auto;
+    display: block;
+  }
+  .aspire-hero__copy {
+    display: grid; grid-template-columns: 1fr 2.5fr;
+    gap: 40px; align-items: end;
+    margin-bottom: 40px;
+  }
+  .aspire-hero__headline {
+    font-family: var(--font-display);
+    font-size: 42px; font-weight: 500; line-height: 1.2;
+    color: #fff; margin: 0;
+  }
+  .aspire-hero__subhead {
+    font-family: var(--font-body);
+    font-size: 24px; line-height: 1.6;
+    color: #fff; margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .aspire-hero__inner { padding: 110px 24px 60px; }
+    .aspire-hero__lockup-img { width: 80%; }
+    .aspire-hero__copy { grid-template-columns: 1fr; gap: 24px; margin-bottom: 24px; }
+    .aspire-hero__headline { font-size: 32px; }
+    .aspire-hero__subhead { font-size: 18px; }
+  }
+  @media (max-width: 480px) {
+    .aspire-hero__inner { padding: 100px 20px 48px; }
+    .aspire-hero__headline { font-size: 28px; }
+    .aspire-hero__subhead { font-size: 16px; }
+  }
+</style>

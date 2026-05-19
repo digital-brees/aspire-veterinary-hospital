@@ -1,0 +1,56 @@
+---
+// ServiceLayout.astro — service page chrome (hero + sticky tab strip + content section).
+// Each service page passes its hero props, tab data, and content via the default slot.
+import BaseLayout from './BaseLayout.astro';
+import ServiceHero from '../components/ServiceHero.astro';
+import ServiceTabStrip from '../components/ServiceTabStrip.astro';
+import type { Tab } from '../components/ServiceTabStrip.astro';
+
+export interface Props {
+  // SEO / meta
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage?: string;
+  schemaJson?: string;
+  currentService?: string;
+  // Hero
+  heroImage: string;
+  heroEyebrow?: string;
+  heroH1: string;
+  heroLede?: string;
+  // Tab strip (optional — omit for flat pages with no siblings)
+  tabs?: Tab[];
+  activeSlug?: string;
+  tabsLabel?: string;
+}
+
+const {
+  title, description, canonical, ogImage, schemaJson, currentService,
+  heroImage, heroEyebrow, heroH1, heroLede,
+  tabs, activeSlug, tabsLabel,
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage ?? heroImage}
+  ogType="article"
+  schemaJson={schemaJson}
+  currentService={currentService}
+>
+  <ServiceHero
+    bgImage={heroImage}
+    eyebrow={heroEyebrow}
+    h1={heroH1}
+    lede={heroLede}
+  />
+  {tabs && tabs.length > 0 && <ServiceTabStrip tabs={tabs} activeSlug={activeSlug} ariaLabel={tabsLabel} />}
+  <section class="content">
+    <div class="content__inner">
+      <slot />
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceHero from '../components/ServiceHero.astro';
+
+// Team roster — add new members here. Each gets a card on this listing page
+// and a dedicated bio page at /our-team/[slug]/.
+const team = [
+  {
+    slug: 'anna-matheny-dvm-cvma-ccrp-cwdp',
+    name: 'Anna Matheny',
+    credentials: 'DVM, cVMA, CCRP, cWDP',
+    title: 'Founder & Lead Veterinarian',
+    photo: 'https://aspirevethospital.com/wp-content/uploads/2025/11/mtd-Matheny.jpg',
+    photoAlt: 'Dr. Anna Matheny with a Bernese Mountain Dog',
+    fearFree: true,
+    intro: 'Founder of Aspire and a working dog practitioner — one of only two veterinarians with this credential in Maryland.',
+  },
+];
+
+const schemaJson = `{"@context":"https://schema.org","@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","employee":[${team.map(m => `{"@type":"Person","name":"${m.name}","jobTitle":"${m.credentials} — ${m.title}","image":"${m.photo}","url":"https://aspirevethospital.com/our-team/${m.slug}/","worksFor":{"@type":"VeterinaryCare","name":"Aspire Veterinary Hospital"}}`).join(',')}]}`;
+---
+
+<BaseLayout
+  title="Our Team | Aspire Veterinary Hospital in Germantown, MD"
+  description="Meet the team at Aspire Veterinary Hospital — including founder Dr. Anna Matheny, DVM, cVMA, CCRP, cWDP. Compassionate, expert care for pets and working dogs."
+  canonical="https://aspirevethospital.com/our-team/"
+  ogImage="https://aspirevethospital.com/wp-content/uploads/2025/11/mtd-Matheny.jpg"
+  ogType="website"
+  schemaJson={schemaJson}
+>
+  <ServiceHero
+    bgImage="https://aspirevethospital.com/wp-content/uploads/2025/10/wellness-care-2_s1.jpg"
+    eyebrow="Aspire Veterinary Hospital"
+    h1="Our Team"
+    lede="The veterinarians and staff who make Aspire feel like a place where pets — and their people — are truly understood."
+  />
+
+  <section class="team-section">
+    <div class="team-section__inner">
+      <ul class="team-grid">
+        {team.map((member) => (
+          <li class="team-card">
+            <a class="team-card__link" href={`/our-team/${member.slug}/`}>
+              <div class="team-card__photo-wrap">
+                <img class="team-card__photo" src={member.photo} alt={member.photoAlt} loading="lazy" />
+                {member.fearFree && (
+                  <span class="team-card__badge" title="Fear Free Certified" aria-hidden="true">
+                    <img src="https://aspirevethospital.com/wp-content/uploads/2026/02/FF-Certified.png" alt="" loading="lazy" />
+                  </span>
+                )}
+              </div>
+              <div class="team-card__body">
+                <h2 class="team-card__name">{member.name}</h2>
+                <p class="team-card__creds">{member.credentials}</p>
+                <p class="team-card__title">{member.title}</p>
+                <p class="team-card__intro">{member.intro}</p>
+                <span class="team-card__cta">View Bio →</span>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .team-section {
+    background: var(--aspire-section-bg);
+    padding: 80px 0 100px;
+  }
+  .team-section__inner {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* Auto-fit responsive grid — single card centers, two cards split, three+ wrap */
+  .team-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
+    gap: 32px;
+    justify-content: center;
+  }
+  .team-card {
+    margin: 0;
+  }
+  .team-card__link {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow: 0 2px 14px rgba(47, 65, 87, 0.08);
+    height: 100%;
+  }
+  .team-card__link:hover,
+  .team-card__link:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(47, 65, 87, 0.12);
+  }
+  .team-card__link:focus-visible {
+    outline: 2px solid var(--aspire-tan);
+    outline-offset: 4px;
+  }
+  .team-card__photo-wrap {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--aspire-section-bg);
+  }
+  .team-card__photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+  }
+  .team-card__link:hover .team-card__photo {
+    transform: scale(1.03);
+  }
+  .team-card__badge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 64px;
+    height: 64px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(47, 65, 87, 0.18);
+  }
+  .team-card__badge img { width: 100%; height: 100%; object-fit: contain; }
+
+  .team-card__body {
+    padding: 24px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .team-card__name {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--aspire-text-dark);
+    margin: 0 0 4px;
+    line-height: 1.2;
+  }
+  .team-card__creds {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--aspire-tan);
+    margin: 0 0 14px;
+    letter-spacing: 0.3px;
+  }
+  .team-card__title {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--aspire-text);
+    margin: 0 0 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #ECE6DF;
+  }
+  .team-card__intro {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--aspire-text);
+    margin: 0 0 18px;
+    flex: 1;
+  }
+  .team-card__cta {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--aspire-tan);
+    align-self: flex-start;
+    transition: gap 0.2s ease;
+  }
+  .team-card__link:hover .team-card__cta {
+    text-decoration: underline;
+  }
+</style>
