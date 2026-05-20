@@ -1,5 +1,5 @@
 ﻿---
-// AspireCareers.astro â€” full-bleed dark CTA block with monogram + texture bg
+// AspireCareers.astro — full-bleed dark CTA block with monogram + texture bg
 export interface Props {
   monogramImg?: string;
   bgTexture?: string;
@@ -19,7 +19,7 @@ const {
 } = Astro.props;
 ---
 
-<section class="aspire-careers">
+<section class="aspire-careers" style={`background-image: url('${bgTexture}');`}>
   <div class="aspire-careers__inner">
     <img class="aspire-careers__monogram-img" src={monogramImg} alt="" />
     <h2 class="aspire-careers__heading">{heading}</h2>
@@ -66,5 +66,3 @@ const {
     .aspire-careers__heading { font-size: 30px; }
   }
 </style>
-
-
