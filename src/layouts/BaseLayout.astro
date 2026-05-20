@@ -1,4 +1,4 @@
----
+﻿---
 // BaseLayout.astro - shared head + body wrapper for every page.
 import AspireHeader from '../components/AspireHeader.astro';
 import AspireFooter from '../components/AspireFooter.astro';
@@ -87,6 +87,14 @@ const {
       }
     }, ['floatingEstimator']);
   </script>
+  {/* Feedbucket — feedback widget */}
+  <script is:inline>
+    (function(k) {
+        let s=document.createElement('script');s.defer=true;
+        s.src="https://cdn.feedbucket.app/assets/feedbucket.js";
+        s.dataset.feedbucket=k;document.head.appendChild(s);
+    })('7NJRlGvcjelXHlQSAWrd')
+  </script>
 </head>
 <body class="aspire-site">
   <AspireHeader currentService={currentService} />
@@ -97,3 +105,4 @@ const {
   <div id="floatingEstimator"></div>
 </body>
 </html>
+
