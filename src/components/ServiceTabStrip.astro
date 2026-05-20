@@ -1,5 +1,5 @@
----
-// ServiceTabStrip.astro — sticky tab strip with sibling service links.
+﻿---
+// ServiceTabStrip.astro â€” sticky tab strip with sibling service links.
 // Used on every service page. Mirrors live Avada fusion-tabs styling.
 export interface Tab {
   slug: string;
@@ -30,7 +30,6 @@ const { tabs, activeSlug, ariaLabel = 'Service navigation' } = Astro.props;
     top: 90px;
     z-index: 40;
     background: var(--tab-default-bg);
-    position: relative;
   }
   /* Fade-edge scroll cue on mobile: hints there's more to swipe to.
      Hidden on desktop where everything fits. */
@@ -91,3 +90,4 @@ const { tabs, activeSlug, ariaLabel = 'Service navigation' } = Astro.props;
     .tab-strip__item { font-size: 14px; padding: 14px 10px; min-width: 130px; flex: 0 0 auto; height: auto; }
   }
 </style>
+
