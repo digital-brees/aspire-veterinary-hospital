@@ -1,6 +1,10 @@
 ﻿---
-// ServiceTabStrip.astro â€” sticky tab strip with sibling service links.
+// ServiceTabStrip.astro — sticky tab strip with sibling service links.
 // Used on every service page. Mirrors live Avada fusion-tabs styling.
+//
+// Desktop / tablet (>900px): horizontal row, sticky, hover/active states.
+// Mobile (<=900px): tabs stack vertically into a list, non-sticky so they
+// don't dominate the viewport.
 export interface Tab {
   slug: string;
   label: string;
@@ -30,19 +34,6 @@ const { tabs, activeSlug, ariaLabel = 'Service navigation' } = Astro.props;
     top: 90px;
     z-index: 40;
     background: var(--tab-default-bg);
-  }
-  /* Fade-edge scroll cue on mobile: hints there's more to swipe to.
-     Hidden on desktop where everything fits. */
-  .tab-strip::after {
-    content: "";
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    width: 32px;
-    background: linear-gradient(to right, rgba(231, 226, 216, 0), rgba(231, 226, 216, 0.95));
-    pointer-events: none;
   }
   .tab-strip__inner {
     margin: 0;
@@ -84,10 +75,31 @@ const { tabs, activeSlug, ariaLabel = 'Service navigation' } = Astro.props;
     box-shadow: inset 0 -5px 0 var(--aspire-tan), inset 0 1px 0 rgb(235, 234, 234);
   }
   @media (max-width: 900px) {
-    .tab-strip { top: 60px; }
-    .tab-strip::after { display: block; }
-    .tab-strip__inner { justify-content: flex-start; }
-    .tab-strip__item { font-size: 14px; padding: 14px 10px; min-width: 130px; flex: 0 0 auto; height: auto; }
+    .tab-strip {
+      position: static;
+      top: auto;
+    }
+    .tab-strip__inner {
+      flex-direction: column;
+      overflow: visible;
+    }
+    .tab-strip__item {
+      flex: 0 0 auto;
+      width: 100%;
+      min-width: 0;
+      height: auto;
+      padding: 14px 18px;
+      font-size: 15px;
+      text-align: left;
+      justify-content: flex-start;
+      border-right: none;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: inset 4px 0 0 transparent;
+    }
+    .tab-strip__item:last-child { border-bottom: none; }
+    .tab-strip__item.is-active {
+      background: #fff;
+      box-shadow: inset 4px 0 0 var(--aspire-tan);
+    }
   }
 </style>
-
