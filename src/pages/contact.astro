@@ -17,16 +17,16 @@ const phoneDisplay = '(301) 366-0040';
 const email = 'info@aspirevethospital.com';
 
 const hours = [
-  { day: 'Monday',    time: '8am – 6pm' },
-  { day: 'Tuesday',   time: '8am – 6pm' },
-  { day: 'Wednesday', time: '8am – 6pm' },
-  { day: 'Thursday',  time: '8am – 6pm' },
-  { day: 'Friday',    time: '8am – 6pm' },
+  { day: 'Monday',    time: '8am – 5:30pm' },
+  { day: 'Tuesday',   time: '8am – 5:30pm' },
+  { day: 'Wednesday', time: '8am – 5:30pm' },
+  { day: 'Thursday',  time: '8am – 5:30pm' },
+  { day: 'Friday',    time: '8am – 5:30pm' },
   { day: 'Saturday',  time: '9am – 1pm' },
   { day: 'Sunday',    time: 'Closed' },
 ];
 
-const schemaJson = `{"@context":"https://schema.org","@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","email":"info@aspirevethospital.com","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"13:00"}]}`;
+const schemaJson = `{"@context":"https://schema.org","@type":"VeterinaryCare","name":"Aspire Veterinary Hospital","url":"https://aspirevethospital.com/","telephone":"+1-301-366-0040","email":"info@aspirevethospital.com","address":{"@type":"PostalAddress","streetAddress":"14112 Darnestown Road","addressLocality":"Germantown","addressRegion":"MD","postalCode":"20874","addressCountry":"US"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:30"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Saturday","opens":"09:00","closes":"13:00"}]}`;
 ---
 
 <BaseLayout
